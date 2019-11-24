@@ -25,13 +25,12 @@ namespace Standard
         Logger &operator=( Logger && ) = delete;
 
         /*
-         * Writes the log to the output beneath
+         * @brief Writes the log to the output beneath
          *
-         * NOTE: Implementations of this method need to be thread-safe, e.g. this method can be written to from multiple
-         * threads concurrently
+         * @note: Implementations of this method need to be thread-safe, e.g.
+         * this method can be written to from multiple threads concurrently.
          */
-        virtual void logMessage(
-                Level level, const std::wstring &local, std::chrono::system_clock::time_point timestamp ) = 0;
+        virtual void message( Level level, const std::wstring &local ) = 0;
 
         /*
          * Whether a log text with this level will be logged, e.g. the given level is larger or equals minLevel
@@ -40,15 +39,15 @@ namespace Standard
 
     protected:
 
-        virtual const std::string getCurrentTime( );
-
-        virtual const std::wstring toString( Level level );
-
-        explicit Logger( Level minLevel = Level::INFO ) noexcept;
+        Level minLevel;
 
         std::mutex writeLock;
 
-        Level minLevel;
+        explicit Logger( Level minLevel = Level::INFO ) noexcept;
+
+        virtual const std::string getCurrentTime( );
+
+        virtual const std::wstring toString( Level level );
     };
 
     class ConsoleLogger : public Logger
@@ -68,8 +67,7 @@ namespace Standard
 
         ConsoleLogger &operator=( ConsoleLogger && ) = delete;
 
-        void logMessage(
-                Level level, const std::wstring &local, std::chrono::system_clock::time_point timestamp ) override;
+        void message( Level level, const std::wstring &local ) override;
     };
 
     class FileLogger : public Logger
@@ -89,8 +87,7 @@ namespace Standard
 
         FileLogger &operator=( FileLogger && ) = delete;
 
-        void logMessage(
-                Level level, const std::wstring &local, std::chrono::system_clock::time_point timestamp ) override;
+        void message( Level level, const std::wstring &local ) override;
 
     private:
 
@@ -114,8 +111,7 @@ namespace Standard
 
         StreamLogger &operator=( StreamLogger && ) = delete;
 
-        void logMessage(
-                Level level, const std::wstring &local, std::chrono::system_clock::time_point timestamp ) override;
+        void message( Level level, const std::wstring &local ) override;
 
     protected:
 
@@ -139,8 +135,7 @@ namespace Standard
 
         ColoredLogger &operator=( ColoredLogger && ) = delete;
 
-        void logMessage(
-                Level level, const std::wstring &local, std::chrono::system_clock::time_point timestamp ) override;
+        void message( Level level, const std::wstring &local ) override;
     };
 }
 

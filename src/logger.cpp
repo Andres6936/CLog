@@ -63,8 +63,7 @@ const std::wstring Logger::toString(Level level)
 
 ConsoleLogger::ConsoleLogger(const Level minLevel) noexcept : Logger(minLevel) {}
 
-void ConsoleLogger::logMessage(
-    const Level level, const std::wstring& local, const std::chrono::system_clock::time_point timestamp)
+void ConsoleLogger::message( Level level, const std::wstring &local )
 {
     if(!willBeLogged(level))
         return;
@@ -86,8 +85,7 @@ FileLogger::~FileLogger()
     fileStream.close();
 }
 
-void FileLogger::logMessage(
-    const Level level, const std::wstring& local, const std::chrono::system_clock::time_point timestamp)
+void FileLogger::message( Level level, const std::wstring &local )
 {
     if(!willBeLogged(level))
         return;
@@ -97,8 +95,7 @@ void FileLogger::logMessage(
 
 StreamLogger::StreamLogger(std::wostream& stream, const Level minLevel) : Logger(minLevel), stream(stream) {}
 
-void StreamLogger::logMessage(
-    const Level level, const std::wstring& local, const std::chrono::system_clock::time_point timestamp)
+void StreamLogger::message( Level level, const std::wstring &local )
 {
     if(!willBeLogged(level))
         return;
@@ -108,8 +105,7 @@ void StreamLogger::logMessage(
 
 ColoredLogger::ColoredLogger(std::wostream& stream, const Level minLevel) : StreamLogger(stream, minLevel) {}
 
-void ColoredLogger::logMessage(
-    const Level level, const std::wstring& local, const std::chrono::system_clock::time_point timestamp)
+void ColoredLogger::message( Level level, const std::wstring &local )
 {
     if(!willBeLogged(level))
         return;

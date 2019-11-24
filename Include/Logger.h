@@ -1,7 +1,7 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 
-#include "log.h"
+#include "Log.h"
 
 #include <chrono>
 #include <fstream>

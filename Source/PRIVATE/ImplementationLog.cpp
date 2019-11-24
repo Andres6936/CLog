@@ -1,10 +1,8 @@
-#include "log_impl.h"
-#include "../include/logger.h"
+#include "ImplementationLog.h"
+#include "Logger.h"
 
-#include <chrono>
 #include <mutex>
 #include <queue>
-#include <utility>
 
 using namespace Standard::Internal;
 

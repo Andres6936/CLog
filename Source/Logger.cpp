@@ -1,11 +1,4 @@
-/*
- * File:   logger.cpp
- * Author: doe300
- *
- * Created on September 16, 2016, 1:56 PM
- */
-
-#include "logger.h"
+#include "Logger.h"
 
 #include <ctime>
 #include <ios>

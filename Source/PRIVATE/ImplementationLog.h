@@ -1,7 +1,7 @@
 #ifndef LOG_IMPL_H
 #define LOG_IMPL_H
 
-#include "log.h"
+#include "Log.h"
 
 #include <chrono>
 #include <sstream>

@@ -1,17 +1,10 @@
-/*
- * File:   main.cpp
- * Author: doe300
- *
- * Created on September 16, 2016, 2:36 PM
- */
-
 #include <chrono>
 #include <cstdlib>
 #include <iostream>
 #include <thread>
 
-#include "log.h"
-#include "logger.h"
+#include "Log.h"
+#include "Logger.h"
 
 using namespace std;
 

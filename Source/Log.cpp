@@ -1,7 +1,6 @@
-#include "log.h"
+#include "Log.h"
 
-#include "log_impl.h"
-#include "logger.h"
+#include "PRIVATE/ImplementationLog.h"
 
 #include <chrono>
 #include <cstdarg>

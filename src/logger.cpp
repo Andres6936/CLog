@@ -13,29 +13,10 @@
 
 using namespace Standard;
 
-Logger::Logger( const Level minLevel ) noexcept : writeLock( ), minLevel( minLevel )
+Logger::Logger( ) noexcept : writeLock( )
 { }
 
-bool Logger::willBeLogged( const Level level ) const
-{
-    switch ( minLevel )
-    {
-        case Level::DEBUG:
-            return true;
-        case Level::INFO:
-            return level != Level::DEBUG;
-        case Level::WARNING:
-            return level != Level::DEBUG && level != Level::INFO;
-        case Level::ERROR:
-            return level == Level::ERROR || level == Level::SEVERE;
-        case Level::SEVERE:
-            return level == Level::SEVERE;
-        default:
-            throw std::invalid_argument( "Log level not handled!" );
-    }
-}
-
-std::string Logger::getCurrentTime( )
+std::string Logger::GetCurrentTime( )
 {
     time_t now = time( nullptr );
     std::string text = ctime( &now );
@@ -44,7 +25,7 @@ std::string Logger::getCurrentTime( )
     return text;
 }
 
-std::wstring Logger::toString( Level level )
+std::wstring Logger::ToString( Level level )
 {
     switch ( level )
     {
@@ -62,30 +43,23 @@ std::wstring Logger::toString( Level level )
     }
 }
 
-ConsoleLogger::ConsoleLogger( const Level minLevel ) noexcept : Logger( minLevel )
-{ }
+ConsoleLogger::ConsoleLogger( ) noexcept = default;
 
 void ConsoleLogger::message( Level level, const std::wstring &local )
 {
-    if ( !willBeLogged( level ))
-    {
-        return;
-    }
-
     std::lock_guard <std::mutex> guard( writeLock );
 
     if ( level == Level::ERROR || level == Level::SEVERE )
     {
-        std::wcerr << toString( level ) << " " << getCurrentTime( ) << ": " << local;
+        std::wcerr << ToString( level ) << " " << GetCurrentTime( ) << ": " << local;
     }
     else
     {
-        std::wcout << toString( level ) << " " << getCurrentTime( ) << ": " << local;
+        std::wcout << ToString( level ) << " " << GetCurrentTime( ) << ": " << local;
     }
 }
 
-FileLogger::FileLogger( const std::string &fileName, const Level minLevel ) :
-        Logger( minLevel ), fileStream( fileName, std::ios::out )
+FileLogger::FileLogger( const std::string &fileName ) : fileStream( fileName, std::ios::out )
 {
 }
 
@@ -97,54 +71,39 @@ FileLogger::~FileLogger( )
 
 void FileLogger::message( Level level, const std::wstring &local )
 {
-    if ( !willBeLogged( level ))
-    {
-        return;
-    }
-
     std::lock_guard <std::mutex> guard( writeLock );
 
-    fileStream << toString( level ) << " " << getCurrentTime( ) << ": " << local;
+    fileStream << ToString( level ) << " " << GetCurrentTime( ) << ": " << local;
 }
 
-StreamLogger::StreamLogger( std::wostream &stream, const Level minLevel ) : Logger( minLevel ), stream( stream )
+StreamLogger::StreamLogger( std::wostream &stream ) : stream( stream )
 { }
 
 void StreamLogger::message( Level level, const std::wstring &local )
 {
-    if ( !willBeLogged( level ))
-    {
-        return;
-    }
-
     std::lock_guard <std::mutex> guard( writeLock );
 
-    stream << toString( level ) << " " << getCurrentTime( ) << ": " << local;
+    stream << ToString( level ) << " " << GetCurrentTime( ) << ": " << local;
 }
 
-ColoredLogger::ColoredLogger( std::wostream &stream, const Level minLevel ) : StreamLogger( stream, minLevel )
+ColoredLogger::ColoredLogger( std::wostream &stream ) : StreamLogger( stream )
 { }
 
 void ColoredLogger::message( Level level, const std::wstring &local )
 {
-    if ( !willBeLogged( level ))
-    {
-        return;
-    }
-
     std::lock_guard <std::mutex> guard( writeLock );
 
     if ( level == Level::ERROR || level == Level::SEVERE )
     {
-        stream << "\033[31m" << toString( level ) << " " << getCurrentTime( ) << ": " << local << "\033[39;49m";
+        stream << "\033[31m" << ToString( level ) << " " << GetCurrentTime( ) << ": " << local << "\033[39;49m";
     }
     else if ( level == Level::WARNING )
     {
-        stream << "\033[33m" << toString( level ) << " " << getCurrentTime( ) << ": " << local << "\033[39;49m";
+        stream << "\033[33m" << ToString( level ) << " " << GetCurrentTime( ) << ": " << local << "\033[39;49m";
     }
     else
     {
-        stream << toString( level ) << " " << getCurrentTime( ) << ": " << local;
+        stream << ToString( level ) << " " << GetCurrentTime( ) << ": " << local;
     }
     stream.flush( );
 }

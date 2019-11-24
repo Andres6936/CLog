@@ -32,22 +32,15 @@ namespace Standard
          */
         virtual void message( Level level, const std::wstring &local ) = 0;
 
-        /*
-         * Whether a log text with this level will be logged, e.g. the given level is larger or equals minLevel
-         */
-        bool willBeLogged( Level level ) const;
-
     protected:
-
-        Level minLevel = Level::INFO;
 
         std::mutex writeLock;
 
-        explicit Logger( Level minLevel = Level::INFO ) noexcept;
+        Logger( ) noexcept;
 
-        virtual std::string getCurrentTime( );
+        virtual std::string GetCurrentTime( );
 
-        virtual std::wstring toString( Level level );
+        virtual std::wstring ToString( Level level );
     };
 
     class ConsoleLogger : public Logger
@@ -55,7 +48,7 @@ namespace Standard
 
     public:
 
-        explicit ConsoleLogger( Level minLevel = Level::INFO ) noexcept;
+        ConsoleLogger( ) noexcept;
 
         ConsoleLogger( const ConsoleLogger & ) = delete;
 
@@ -75,7 +68,7 @@ namespace Standard
 
     public:
 
-        explicit FileLogger( const std::string &fileName, Level minLevel = Level::INFO );
+        explicit FileLogger( const std::string &fileName );
 
         FileLogger( const FileLogger & ) = delete;
 
@@ -99,7 +92,7 @@ namespace Standard
 
     public:
 
-        explicit StreamLogger( std::wostream &stream, Level minLevel = Level::INFO );
+        explicit StreamLogger( std::wostream &stream );
 
         StreamLogger( const StreamLogger & ) = delete;
 
@@ -123,7 +116,7 @@ namespace Standard
 
     public:
 
-        explicit ColoredLogger( std::wostream &stream, Level minLevel = Level::INFO );
+        explicit ColoredLogger( std::wostream &stream );
 
         ColoredLogger( const ColoredLogger & ) = delete;
 

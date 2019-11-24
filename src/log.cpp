@@ -13,17 +13,7 @@ using namespace Standard;
 
 std::wostream &Standard::Log( Level level )
 {
-    if(!(LOGGER && LOGGER->willBeLogged(level)))
-    {
-        // apparently setting the bad-bit will prevent the << operators from running conversion, which saves some
-        // processing power
-        // https://stackoverflow.com/questions/8243743/is-there-a-null-stdostream-implementation-in-c-or-libraries
-        Standard::Internal::local.stream.setstate( std::ios::badbit );
-    }
-    else
-    {
-        Standard::Internal::local.level = level;
-    }
+    Standard::Internal::local.level = level;
     return Standard::Internal::local.stream;
 }
 

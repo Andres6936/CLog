@@ -51,20 +51,6 @@ std::wostream &Standard::endl( std::wostream &stream )
     return Standard::internal::local.stream;
 }
 
-void Standard::logLazy( Level level, std::function <void( std::wostream & )> &&statement )
-{
-    if(LOGGER->willBeLogged(level))
-    {
-        statement( Log( level ));
-    }
-}
-
-void Standard::logLazy( Level level, std::function <void( )> &&statement )
-{
-    if(LOGGER->willBeLogged(level))
-        statement();
-}
-
 std::wostream& operator<<(std::wostream& stream, const std::string& string)
 {
     std::vector<wchar_t> result(string.size());

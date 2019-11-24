@@ -18,6 +18,7 @@ using namespace std;
 static void logThread()
 {
     const int threadID = std::rand();
+
     while(true)
     {
         Standard::Debug( ) << "Test from: " << threadID << Standard::endl;
@@ -26,10 +27,11 @@ static void logThread()
 
         Standard::Error( ) << "Test 2 from : " << threadID << Standard::endl;
 
-        CPPLOG_LAZY( Standard::Level::INFO, log << "Lazy Standardging!" << Standard::endl );
-        CPPLOG_LAZY_BLOCK( Standard::Level::INFO, Standard::Info( ) << "More lazy logging" << Standard::endl;
+        Standard::Info( ) << "Lazy Standarging!" << Standard::endl;
 
-                Standard::Debug( ) << "Even more lazy logging" << Standard::endl );
+        Standard::Info( ) << "More lazy logging" << Standard::endl;
+
+        Standard::Debug( ) << "Even more lazy logging" << Standard::endl;
     }
 }
 

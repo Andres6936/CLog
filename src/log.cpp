@@ -18,31 +18,30 @@ std::wostream &Standard::Log( Level level )
         // apparently setting the bad-bit will prevent the << operators from running conversion, which saves some
         // processing power
         // https://stackoverflow.com/questions/8243743/is-there-a-null-stdostream-implementation-in-c-or-libraries
-        Standard::internal::local.stream.setstate( std::ios::badbit );
+        Standard::Internal::local.stream.setstate( std::ios::badbit );
     }
     else
     {
-        Standard::internal::local.start = std::chrono::system_clock::now( );
-        Standard::internal::local.level = level;
+        Standard::Internal::local.level = level;
     }
-    return Standard::internal::local.stream;
+    return Standard::Internal::local.stream;
 }
 
 std::wostream &Standard::endl( std::wostream &stream )
 {
     stream << std::endl;
-    if ( !Standard::internal::local.stream.bad( ))
+    if ( !Standard::Internal::local.stream.bad( ))
     {
         // only write to underyling logger, if we didn't set the bad-bit
-        Standard::internal::AppendLog( Standard::internal::local.level,
-                                       Standard::internal::local.stream.str( ));
+        Standard::Internal::AppendLog( Standard::Internal::local.level,
+                                       Standard::Internal::local.stream.str( ));
     }
 
     // reset stream-data (and state)
-    Standard::internal::local.stream.str( std::wstring( ));
-    Standard::internal::local.stream.clear( );
+    Standard::Internal::local.stream.str( std::wstring( ));
+    Standard::Internal::local.stream.clear( );
 
-    return Standard::internal::local.stream;
+    return Standard::Internal::local.stream;
 }
 
 std::wostream& operator<<(std::wostream& stream, const std::string& string)

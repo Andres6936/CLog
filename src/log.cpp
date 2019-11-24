@@ -17,7 +17,7 @@
 
 using namespace Standard;
 
-std::wostream &Standard::log( const Level level )
+std::wostream &Standard::Log( Level level )
 {
     if(!(LOGGER && LOGGER->willBeLogged(level)))
     {
@@ -51,21 +51,12 @@ std::wostream &Standard::endl( std::wostream &stream )
     return Standard::internal::local.stream;
 }
 
-void Standard::logf( const Level level, const wchar_t *format, ... )
-{
-    static const std::size_t bufferSize = 4096;
-    std::vector<wchar_t> buffer(bufferSize);
-    va_list args;
-    va_start(args, format);
-    int num = vswprintf(buffer.data(), buffer.size(), format, args);
-    va_end(args);
-    log(level) << std::wstring(buffer.data(), static_cast<std::size_t>(num)) << endl;
-}
-
 void Standard::logLazy( Level level, std::function <void( std::wostream & )> &&statement )
 {
     if(LOGGER->willBeLogged(level))
-        statement(log(level));
+    {
+        statement( Log( level ));
+    }
 }
 
 void Standard::logLazy( Level level, std::function <void( )> &&statement )

@@ -14,50 +14,43 @@
 
 namespace Standard
 {
-    /*!
-     * The log-level
-     */
     enum class Level : unsigned char
     {
         DEBUG = 'D',
         INFO = 'I',
-        // something is not as expected
         WARNING = 'W',
-        // program-error
         ERROR = 'E',
-        // critical software-error
         SEVERE = 'S'
     };
 
-    std::wostream& log(Level level);
+    std::wostream &Log( Level level );
+
     std::wostream& endl(std::wostream& stream);
 
-    inline std::wostream& debug()
+    inline std::wostream &Debug( )
     {
-        return Standard::log( Level::DEBUG );
+        return Standard::Log( Level::DEBUG );
     }
 
-    inline std::wostream& info()
+    inline std::wostream &Info( )
     {
-        return Standard::log( Level::INFO );
+        return Standard::Log( Level::INFO );
     }
 
-    inline std::wostream& warn()
+    inline std::wostream &Warn( )
     {
-        return Standard::log( Level::WARNING );
+        return Standard::Log( Level::WARNING );
     }
 
-    inline std::wostream& error()
+    inline std::wostream &Error( )
     {
-        return Standard::log( Level::ERROR );
+        return Standard::Log( Level::ERROR );
     }
 
-    inline std::wostream& severe()
+    inline std::wostream &Severe( )
     {
-        return Standard::log( Level::SEVERE );
+        return Standard::Log( Level::SEVERE );
     }
-
-    void logf(Level level, const wchar_t* format, ...);
 
     /*!
      * Wrapper around a logging statement to only execute it if the level of logging

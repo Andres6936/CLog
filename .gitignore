@@ -1,6 +1,9 @@
 # Default build directory
 build/
 
+### JetBrains
+.idea/
+
 ### CMake
 CMakeFiles/
 

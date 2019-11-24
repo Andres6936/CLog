@@ -1,9 +1,3 @@
-/*
- * File:   log.h
- * Author: doe300
- *
- * Created on September 16, 2016, 1:33 PM
- */
 #ifndef LOG_H
 #define LOG_H
 

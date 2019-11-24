@@ -1,9 +1,3 @@
-/*
- * File:   log.cpp
- * Author: doe300
- *
- * Created on September 16, 2016, 1:33 PM
- */
 #include "log.h"
 
 #include "log_impl.h"
@@ -40,8 +34,8 @@ std::wostream &Standard::endl( std::wostream &stream )
     if ( !Standard::internal::local.stream.bad( ))
     {
         // only write to underyling logger, if we didn't set the bad-bit
-        Standard::internal::appendLog( Standard::internal::local.level,
-                                       Standard::internal::local.stream.str( ), Standard::internal::local.start );
+        Standard::internal::AppendLog( Standard::internal::local.level,
+                                       Standard::internal::local.stream.str( ));
     }
 
     // reset stream-data (and state)

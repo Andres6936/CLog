@@ -39,15 +39,15 @@ namespace Standard
 
     protected:
 
-        Level minLevel;
+        Level minLevel = Level::INFO;
 
         std::mutex writeLock;
 
         explicit Logger( Level minLevel = Level::INFO ) noexcept;
 
-        virtual const std::string getCurrentTime( );
+        virtual std::string getCurrentTime( );
 
-        virtual const std::wstring toString( Level level );
+        virtual std::wstring toString( Level level );
     };
 
     class ConsoleLogger : public Logger

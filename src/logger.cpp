@@ -34,7 +34,7 @@ bool Logger::willBeLogged(const Level level) const
     }
 }
 
-const std::string Logger::getCurrentTime()
+std::string Logger::getCurrentTime( )
 {
     time_t now = time(nullptr);
     std::string text = ctime(&now);
@@ -43,7 +43,7 @@ const std::string Logger::getCurrentTime()
     return text;
 }
 
-const std::wstring Logger::toString(Level level)
+std::wstring Logger::toString( Level level )
 {
     switch(level)
     {

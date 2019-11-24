@@ -32,6 +32,10 @@ static void logThread()
         Standard::Info( ) << "More lazy logging" << Standard::endl;
 
         Standard::Debug( ) << "Even more lazy logging" << Standard::endl;
+
+        Standard::Warn( ) << "Warning" << Standard::endl;
+
+        Standard::Severe( ) << "Severe" << Standard::endl;
     }
 }
 

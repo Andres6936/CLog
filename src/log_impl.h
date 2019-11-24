@@ -13,7 +13,7 @@
 #include <chrono>
 #include <sstream>
 
-namespace CPPLOG_NAMESPACE
+namespace Standard
 {
     namespace internal
     {
@@ -21,7 +21,7 @@ namespace CPPLOG_NAMESPACE
         {
             std::wstringstream stream;
             std::chrono::system_clock::time_point start;
-            CPPLOG_NAMESPACE::Level level;
+            Standard::Level level;
 
             explicit Local() noexcept;
         };
@@ -29,8 +29,8 @@ namespace CPPLOG_NAMESPACE
         extern thread_local Local local;
 
         void appendLog(
-            CPPLOG_NAMESPACE::Level level, const std::wstring& local, std::chrono::system_clock::time_point timestamp);
+                Standard::Level level, const std::wstring &local, std::chrono::system_clock::time_point timestamp );
     } // namespace internal
-} // namespace CPPLOG_NAMESPACE
+} // namespace Standard
 
 #endif /* LOG_IMPL_H */

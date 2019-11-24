@@ -1,6 +1,12 @@
 # Default build directory
 build/
 
+### CMake
+CMakeFiles/
+
+### Git
+.gitignore
+
 #Netbeans
 nbproject/
 

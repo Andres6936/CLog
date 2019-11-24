@@ -13,7 +13,7 @@
 #include <fstream>
 #include <mutex>
 
-namespace CPPLOG_NAMESPACE
+namespace Standard
 {
     class Logger
     {
@@ -115,6 +115,6 @@ namespace CPPLOG_NAMESPACE
         void logMessage(
             Level level, const std::wstring& local, std::chrono::system_clock::time_point timestamp) override;
     };
-} // namespace CPPLOG_NAMESPACE
+} // namespace Standard
 
 #endif /* LOGGER_H */

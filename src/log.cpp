@@ -15,43 +15,43 @@
 #include <sstream>
 #include <vector>
 
-using namespace CPPLOG_NAMESPACE;
+using namespace Standard;
 
-std::wostream& CPPLOG_NAMESPACE::log(const Level level)
+std::wostream &Standard::log( const Level level )
 {
     if(!(LOGGER && LOGGER->willBeLogged(level)))
     {
         // apparently setting the bad-bit will prevent the << operators from running conversion, which saves some
         // processing power
         // https://stackoverflow.com/questions/8243743/is-there-a-null-stdostream-implementation-in-c-or-libraries
-        CPPLOG_NAMESPACE::internal::local.stream.setstate(std::ios::badbit);
+        Standard::internal::local.stream.setstate( std::ios::badbit );
     }
     else
     {
-        CPPLOG_NAMESPACE::internal::local.start = std::chrono::system_clock::now();
-        CPPLOG_NAMESPACE::internal::local.level = level;
+        Standard::internal::local.start = std::chrono::system_clock::now( );
+        Standard::internal::local.level = level;
     }
-    return CPPLOG_NAMESPACE::internal::local.stream;
+    return Standard::internal::local.stream;
 }
 
-std::wostream& CPPLOG_NAMESPACE::endl(std::wostream& stream)
+std::wostream &Standard::endl( std::wostream &stream )
 {
     stream << std::endl;
-    if(!CPPLOG_NAMESPACE::internal::local.stream.bad())
+    if ( !Standard::internal::local.stream.bad( ))
     {
         // only write to underyling logger, if we didn't set the bad-bit
-        CPPLOG_NAMESPACE::internal::appendLog(CPPLOG_NAMESPACE::internal::local.level,
-            CPPLOG_NAMESPACE::internal::local.stream.str(), CPPLOG_NAMESPACE::internal::local.start);
+        Standard::internal::appendLog( Standard::internal::local.level,
+                                       Standard::internal::local.stream.str( ), Standard::internal::local.start );
     }
 
     // reset stream-data (and state)
-    CPPLOG_NAMESPACE::internal::local.stream.str(std::wstring());
-    CPPLOG_NAMESPACE::internal::local.stream.clear();
+    Standard::internal::local.stream.str( std::wstring( ));
+    Standard::internal::local.stream.clear( );
 
-    return CPPLOG_NAMESPACE::internal::local.stream;
+    return Standard::internal::local.stream;
 }
 
-void CPPLOG_NAMESPACE::logf(const Level level, const wchar_t* format, ...)
+void Standard::logf( const Level level, const wchar_t *format, ... )
 {
     static const std::size_t bufferSize = 4096;
     std::vector<wchar_t> buffer(bufferSize);
@@ -62,13 +62,13 @@ void CPPLOG_NAMESPACE::logf(const Level level, const wchar_t* format, ...)
     log(level) << std::wstring(buffer.data(), static_cast<std::size_t>(num)) << endl;
 }
 
-void CPPLOG_NAMESPACE::logLazy(Level level, std::function<void(std::wostream&)>&& statement)
+void Standard::logLazy( Level level, std::function <void( std::wostream & )> &&statement )
 {
     if(LOGGER->willBeLogged(level))
         statement(log(level));
 }
 
-void CPPLOG_NAMESPACE::logLazy(Level level, std::function<void()>&& statement)
+void Standard::logLazy( Level level, std::function <void( )> &&statement )
 {
     if(LOGGER->willBeLogged(level))
         statement();

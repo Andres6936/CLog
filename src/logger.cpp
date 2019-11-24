@@ -11,7 +11,7 @@
 #include <ios>
 #include <iostream>
 
-using namespace CPPLOG_NAMESPACE;
+using namespace Standard;
 
 Logger::Logger(const Level minLevel) noexcept : writeLock(), minLevel(minLevel) {}
 

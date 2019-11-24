@@ -12,7 +12,7 @@
 #include <ostream>
 #include <string>
 
-namespace CPPLOG_NAMESPACE
+namespace Standard
 {
     /*!
      * The log-level
@@ -34,27 +34,27 @@ namespace CPPLOG_NAMESPACE
 
     inline std::wostream& debug()
     {
-        return CPPLOG_NAMESPACE::log(Level::DEBUG);
+        return Standard::log( Level::DEBUG );
     }
 
     inline std::wostream& info()
     {
-        return CPPLOG_NAMESPACE::log(Level::INFO);
+        return Standard::log( Level::INFO );
     }
 
     inline std::wostream& warn()
     {
-        return CPPLOG_NAMESPACE::log(Level::WARNING);
+        return Standard::log( Level::WARNING );
     }
 
     inline std::wostream& error()
     {
-        return CPPLOG_NAMESPACE::log(Level::ERROR);
+        return Standard::log( Level::ERROR );
     }
 
     inline std::wostream& severe()
     {
-        return CPPLOG_NAMESPACE::log(Level::SEVERE);
+        return Standard::log( Level::SEVERE );
     }
 
     void logf(Level level, const wchar_t* format, ...);
@@ -82,7 +82,7 @@ namespace CPPLOG_NAMESPACE
      * To disable logging (or stopping running logging), set this LOGGER to nullptr
      */
     extern std::unique_ptr<Logger> LOGGER;
-} // namespace CPPLOG_NAMESPACE
+} // namespace Standard
 
 /*!
  * Convenience-wrapper to allow writing std::string into std::wostream
@@ -96,7 +96,7 @@ std::wostream& operator<<(std::wostream& stream, const std::string& string);
  * Example usage:
  * CPPLOG_LAZY(Level::DEBUG, log << "Hello World! << endl);
  */
-#define CPPLOG_LAZY(level, content) CPPLOG_NAMESPACE::logLazy(level, [&](std::wostream& log) { content; })
+#define CPPLOG_LAZY( level, content ) Standard::logLazy(level, [&](std::wostream& log) { content; })
 
 /*!
  * Convenience macro for lazy logging.
@@ -104,6 +104,6 @@ std::wostream& operator<<(std::wostream& stream, const std::string& string);
  * Example usage:
  * CPPLOG_LAZY(Level::DEBUG, debug() << "Hello World! << endl; debug() << "Second statement!" << endl);
  */
-#define CPPLOG_LAZY_BLOCK(level, content) CPPLOG_NAMESPACE::logLazy(level, [&]() { content; })
+#define CPPLOG_LAZY_BLOCK( level, content ) Standard::logLazy(level, [&]() { content; })
 
 #endif /* LOG_H */

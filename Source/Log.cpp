@@ -35,12 +35,12 @@ std::wostream& CLog::endl(std::wostream& stream)
 
 std::wostream& operator<<(std::wostream& stream, const std::string& string)
 {
-    std::vector<wchar_t> result(string.size());
-    size_t res = std::mbstowcs(result.data(), string.data(), string.size());
-    if(res == static_cast<std::size_t>(-1))
-    {
-        // TODO handle error
-        return stream;
-    }
-    return stream << std::wstring(result.data(), res);
+	std::vector <wchar_t> result(string.size());
+	size_t res = std::mbstowcs(result.data(), string.data(), string.size());
+	if (res == static_cast<std::size_t>(-1))
+	{
+		// TODO handle error
+		return stream;
+	}
+	return stream << std::wstring(result.data(), res);
 }

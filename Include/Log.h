@@ -17,45 +17,45 @@ namespace CLog
 		SEVERE = 'S'
 	};
 
-    std::wostream &Log( Level level );
+	std::wostream& Log(Level level);
 
-    std::wostream& endl(std::wostream& stream);
+	std::wostream& endl(std::wostream& stream);
 
-    inline std::wostream &Debug( )
-    {
+	inline std::wostream& Debug()
+	{
 		return CLog::Log(Level::DEBUG);
-    }
+	}
 
-    inline std::wostream &Info( )
-    {
+	inline std::wostream& Info()
+	{
 		return CLog::Log(Level::INFO);
-    }
+	}
 
-    inline std::wostream &Warn( )
-    {
+	inline std::wostream& Warn()
+	{
 		return CLog::Log(Level::WARNING);
-    }
+	}
 
-    inline std::wostream &Error( )
-    {
+	inline std::wostream& Error()
+	{
 		return CLog::Log(Level::ERROR);
-    }
+	}
 
-    inline std::wostream &Severe( )
-    {
+	inline std::wostream& Severe()
+	{
 		return CLog::Log(Level::SEVERE);
-    }
+	}
 
-    // Forward-declaration for the logger-instance
-    class Logger;
+	// Forward-declaration for the logger-instance
+	class Logger;
 
-    /*!
-     * This is the Logger-instance being used to write the logs.
-     *
-     * Use this variable to set a custom Logger-instance.
-     * To disable logging (or stopping running logging), set this LOGGER to nullptr
-     */
-    extern std::unique_ptr<Logger> LOGGER;
+	/*!
+	 * This is the Logger-instance being used to write the logs.
+	 *
+	 * Use this variable to set a custom Logger-instance.
+	 * To disable logging (or stopping running logging), set this LOGGER to nullptr
+	 */
+	extern std::unique_ptr <Logger> LOGGER;
 }
 
 /*!

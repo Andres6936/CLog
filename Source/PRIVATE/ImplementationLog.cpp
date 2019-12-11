@@ -11,12 +11,14 @@ using namespace CLog::Internal;
 
 std::unique_ptr <CLog::Logger> CLog::LOGGER =
 		std::unique_ptr <CLog::Logger>(new CLog::ConsoleLogger());
+
 #endif
 
 thread_local Local CLog::Internal::local;
 
 Local::Local() noexcept : level{ CLog::Level::DEBUG }
-{ }
+{
+}
 
 void CLog::Internal::AppendLog(CLog::Level level, const std::wstring& basicString)
 {

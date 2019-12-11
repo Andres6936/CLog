@@ -19,13 +19,13 @@ namespace CLog
 
 			CLog::Level level;
 
-            explicit Local() noexcept;
-        };
+			explicit Local() noexcept;
+		};
 
-        extern thread_local Local local;
+		extern thread_local Local local;
 
 		void AppendLog(CLog::Level level, const std::wstring& basicString);
-    }
+	}
 }
 
 #endif /* LOG_IMPL_H */

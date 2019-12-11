@@ -10,13 +10,13 @@ using namespace std;
 
 static void logThread()
 {
-    const int threadID = std::rand();
+	const int threadID = std::rand();
 
-    while(true)
-    {
-        CLog::Debug() << "Test from: " << threadID << CLog::endl;
+	while (true)
+	{
+		CLog::Debug() << "Test from: " << threadID << CLog::endl;
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
 		CLog::Error() << "Test 2 from : " << threadID << CLog::endl;
 
@@ -29,7 +29,7 @@ static void logThread()
 		CLog::Warn() << "Warning" << CLog::endl;
 
 		CLog::Severe() << "Severe" << CLog::endl;
-    }
+	}
 }
 
 /*
@@ -41,19 +41,19 @@ int main(int argc, char** argv)
 
 	CLog::Info() << "Dummy" << CLog::endl;
 
-    for(int i = 0; i < 10; i++)
-    {
-        new std::thread(&logThread);
-    }
+	for (int i = 0; i < 10; i++)
+	{
+		new std::thread(&logThread);
+	}
 
-    while(true)
-    {
+	while (true)
+	{
 		CLog::Debug() << std::string("Test") << CLog::endl;
 
-        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
 		CLog::Error() << "Test2" << CLog::endl;
-    }
+	}
 
-    return 0;
+	return 0;
 }

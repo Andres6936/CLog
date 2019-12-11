@@ -7,16 +7,16 @@
 #include <fstream>
 #include <mutex>
 
-namespace Standard
+namespace CLog
 {
-    class Logger
-    {
+	class Logger
+	{
 
-    public:
+	public:
 
-        Logger( const Logger & ) = delete;
+		Logger(const Logger&) = delete;
 
-        Logger( Logger && ) = delete;
+		Logger(Logger&&) = delete;
 
         virtual ~Logger( ) = default;
 

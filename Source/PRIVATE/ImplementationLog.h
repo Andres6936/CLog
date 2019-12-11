@@ -6,25 +6,25 @@
 #include <chrono>
 #include <sstream>
 
-namespace Standard
+namespace CLog
 {
-    namespace Internal
-    {
-        class Local
-        {
+	namespace Internal
+	{
+		class Local
+		{
 
-        public:
+		public:
 
-            std::wstringstream stream;
+			std::wstringstream stream;
 
-            Standard::Level level;
+			CLog::Level level;
 
             explicit Local() noexcept;
         };
 
         extern thread_local Local local;
 
-        void AppendLog( Standard::Level level, const std::wstring &basicString );
+		void AppendLog(CLog::Level level, const std::wstring& basicString);
     }
 }
 

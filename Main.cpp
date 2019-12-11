@@ -14,21 +14,21 @@ static void logThread()
 
     while(true)
     {
-        Standard::Debug( ) << "Test from: " << threadID << Standard::endl;
+        CLog::Debug() << "Test from: " << threadID << CLog::endl;
 
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
-        Standard::Error( ) << "Test 2 from : " << threadID << Standard::endl;
+		CLog::Error() << "Test 2 from : " << threadID << CLog::endl;
 
-        Standard::Info( ) << "Lazy Standarging!" << Standard::endl;
+		CLog::Info() << "Lazy Standarging!" << CLog::endl;
 
-        Standard::Info( ) << "More lazy logging" << Standard::endl;
+		CLog::Info() << "More lazy logging" << CLog::endl;
 
-        Standard::Debug( ) << "Even more lazy logging" << Standard::endl;
+		CLog::Debug() << "Even more lazy logging" << CLog::endl;
 
-        Standard::Warn( ) << "Warning" << Standard::endl;
+		CLog::Warn() << "Warning" << CLog::endl;
 
-        Standard::Severe( ) << "Severe" << Standard::endl;
+		CLog::Severe() << "Severe" << CLog::endl;
     }
 }
 
@@ -37,9 +37,9 @@ static void logThread()
  */
 int main(int argc, char** argv)
 {
-    Standard::LOGGER.reset( new Standard::ColoredLogger( std::wcout ));
+	CLog::LOGGER.reset(new CLog::ColoredLogger(std::wcout));
 
-    Standard::Info( ) << "Dummy" << Standard::endl;
+	CLog::Info() << "Dummy" << CLog::endl;
 
     for(int i = 0; i < 10; i++)
     {
@@ -48,11 +48,11 @@ int main(int argc, char** argv)
 
     while(true)
     {
-        Standard::Debug( ) << std::string( "Test" ) << Standard::endl;
+		CLog::Debug() << std::string("Test") << CLog::endl;
 
         std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
-        Standard::Error( ) << "Test2" << Standard::endl;
+		CLog::Error() << "Test2" << CLog::endl;
     }
 
     return 0;

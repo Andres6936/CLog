@@ -8,29 +8,29 @@
 #include <sstream>
 #include <vector>
 
-using namespace Standard;
+using namespace CLog;
 
-std::wostream &Standard::Log( Level level )
+std::wostream& CLog::Log(Level level)
 {
-    Standard::Internal::local.level = level;
-    return Standard::Internal::local.stream;
+	CLog::Internal::local.level = level;
+	return CLog::Internal::local.stream;
 }
 
-std::wostream &Standard::endl( std::wostream &stream )
+std::wostream& CLog::endl(std::wostream& stream)
 {
-    stream << std::endl;
-    if ( !Standard::Internal::local.stream.bad( ))
-    {
-        // only write to underyling logger, if we didn't set the bad-bit
-        Standard::Internal::AppendLog( Standard::Internal::local.level,
-                                       Standard::Internal::local.stream.str( ));
-    }
+	stream << std::endl;
+	if (!CLog::Internal::local.stream.bad())
+	{
+		// only write to underyling logger, if we didn't set the bad-bit
+		CLog::Internal::AppendLog(CLog::Internal::local.level,
+				CLog::Internal::local.stream.str());
+	}
 
-    // reset stream-data (and state)
-    Standard::Internal::local.stream.str( std::wstring( ));
-    Standard::Internal::local.stream.clear( );
+	// reset stream-data (and state)
+	CLog::Internal::local.stream.str(std::wstring());
+	CLog::Internal::local.stream.clear();
 
-    return Standard::Internal::local.stream;
+	return CLog::Internal::local.stream;
 }
 
 std::wostream& operator<<(std::wostream& stream, const std::string& string)

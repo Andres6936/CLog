@@ -4,7 +4,7 @@
 #include <ios>
 #include <iostream>
 
-using namespace Standard;
+using namespace CLog;
 
 Logger::Logger( ) noexcept : writeLock( )
 { }

@@ -6,16 +6,16 @@
 #include <ostream>
 #include <string>
 
-namespace Standard
+namespace CLog
 {
-    enum class Level : unsigned char
-    {
-        DEBUG = 'D',
-        INFO = 'I',
-        WARNING = 'W',
-        ERROR = 'E',
-        SEVERE = 'S'
-    };
+	enum class Level : unsigned char
+	{
+		DEBUG = 'D',
+		INFO = 'I',
+		WARNING = 'W',
+		ERROR = 'E',
+		SEVERE = 'S'
+	};
 
     std::wostream &Log( Level level );
 
@@ -23,27 +23,27 @@ namespace Standard
 
     inline std::wostream &Debug( )
     {
-        return Standard::Log( Level::DEBUG );
+		return CLog::Log(Level::DEBUG);
     }
 
     inline std::wostream &Info( )
     {
-        return Standard::Log( Level::INFO );
+		return CLog::Log(Level::INFO);
     }
 
     inline std::wostream &Warn( )
     {
-        return Standard::Log( Level::WARNING );
+		return CLog::Log(Level::WARNING);
     }
 
     inline std::wostream &Error( )
     {
-        return Standard::Log( Level::ERROR );
+		return CLog::Log(Level::ERROR);
     }
 
     inline std::wostream &Severe( )
     {
-        return Standard::Log( Level::SEVERE );
+		return CLog::Log(Level::SEVERE);
     }
 
     // Forward-declaration for the logger-instance

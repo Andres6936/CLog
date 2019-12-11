@@ -31,9 +31,7 @@ std::wstring Logger::ToString(Level level)
 		return L"[W]";
 	case Level::ERROR:
 		return L"[E]";
-	case Level::SEVERE:
-	default:
-		return L"[S]";
+	case Level::SEVERE:;
 	}
 }
 

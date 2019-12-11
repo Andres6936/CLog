@@ -27,11 +27,11 @@ thread-safe fashion.
     #include "Log.h"
     
     //Where you want to log:
-    CLog::Debug() << "This is a debug message" << Standard::endl;
-    CLog::Info() << "This is purely informational" << Standard::endl;
-    CLog::Warn() << "Supports full C++ stream syntax, hence we can log " << 12 << " as well as " << 42.42 << Standard::endl;
-    CLog::Error() << "Something bad happened here!" << Standard::endl;
-    CLog::Severe() << "Something really catastrophic happened! Do somthing, NOW!!" << Standard::endl;
+    CLog::Debug() << "This is a debug message" << CLog::endl;
+    CLog::Info() << "This is purely informational" << CLog::endl;
+    CLog::Warn() << "Supports full C++ stream syntax, hence we can log " << 12 << " as well as " << 42.42 << CLog::endl;
+    CLog::Error() << "Something bad happened here!" << CLog::endl;
+    CLog::Severe() << "Something really catastrophic happened! Do somthing, NOW!!" << CLog::endl;
 ```
 
 ## Configuration

@@ -23,26 +23,23 @@ thread-safe fashion.
 ## Usage
 
 ```cpp
-
     //Top of the file:
     #include "Log.h"
     
-    //...
-    
     //Where you want to log:
-    Standard::Debug() << "This is a debug message" << Standard::endl;
-    Standard::Info() << "This is purely informational" << Standard::endl;
-    Standard::Warn() << "Supports full C++ stream syntax, hence we can log " << 12 << " as well as " << 42.42 << Standard::endl;
-    Standard::Error() << "Something bad happened here!" << Standard::endl;
-    Standard::Severe() << "Something really catastrophic happened! Do somthing, NOW!!" << Standard::endl;
-
+    CLog::Debug() << "This is a debug message" << Standard::endl;
+    CLog::Info() << "This is purely informational" << Standard::endl;
+    CLog::Warn() << "Supports full C++ stream syntax, hence we can log " << 12 << " as well as " << 42.42 << Standard::endl;
+    CLog::Error() << "Something bad happened here!" << Standard::endl;
+    CLog::Severe() << "Something really catastrophic happened! Do somthing, NOW!!" << Standard::endl;
 ```
 
 ## Configuration
 
 CppLog can optionally be configured in several ways:
 
-- Setting the global variable **LOGGER** in the framework's namespace (by default **Standard::LOGGER**) determines the logger to be used.
+- Setting the global variable **LOGGER** in the framework's namespace
+(by default **CLog::LOGGER**) determines the logger to be used.
 Resetting **LOGGER** to the *nullptr* disables logging for the remainder of the program's life. 
 This also shuts down the logging-thread, so no CPU time is wasted. By default, the **LOGGER** is set to **ConsoleLogger** (see section Extensions).
 

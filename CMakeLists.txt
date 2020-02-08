@@ -5,7 +5,7 @@ SET(CMAKE_CXX_STANDARD 20)
 SET(CMAKE_CXX_STANDARD_REQUIRED ON)
 SET(CMAKE_CXX_EXTENSIONS OFF)
 
-PROJECT(CLog VERSION 0.4)
+PROJECT(Levin VERSION 0.4)
 
 OPTION(CPPLOG_BUILD_TEST "Build the concurrency test-application" ON)
 
@@ -21,25 +21,25 @@ SET(SRCS
         )
 
 IF (WIN32)
-    ADD_LIBRARY(CLog STATIC ${SRCS})
-    TARGET_COMPILE_OPTIONS(CLog PRIVATE /W3 /D_UNICODE /DUNICODE)
+    ADD_LIBRARY(Levin STATIC ${SRCS})
+    TARGET_COMPILE_OPTIONS(Levin PRIVATE /W3 /D_UNICODE /DUNICODE)
 ELSE ()
-    ADD_LIBRARY(CLog SHARED ${SRCS})
-    ADD_LIBRARY(CLogStatic STATIC ${SRCS})
-    TARGET_COMPILE_OPTIONS(CLog PRIVATE -O3 -Wall -Wextra -Wno-return-type -Wno-unused-parameter -Wno-missing-field-initializers -Wpedantic -pthread -fPIC)
-    TARGET_COMPILE_OPTIONS(CLogStatic PRIVATE -O3 -Wall -Wextra -Wno-return-type -Wno-unused-parameter -Wno-missing-field-initializers -Wpedantic -pthread -fPIC)
+    ADD_LIBRARY(Levin SHARED ${SRCS})
+    ADD_LIBRARY(LevinStatic STATIC ${SRCS})
+    TARGET_COMPILE_OPTIONS(Levin PRIVATE -O3 -Wall -Wextra -Wno-return-type -Wno-unused-parameter -Wno-missing-field-initializers -Wpedantic -pthread -fPIC)
+    TARGET_COMPILE_OPTIONS(LevinStatic PRIVATE -O3 -Wall -Wextra -Wno-return-type -Wno-unused-parameter -Wno-missing-field-initializers -Wpedantic -pthread -fPIC)
 ENDIF ()
 
-IF (TARGET CLogStatic)
-    TARGET_INCLUDE_DIRECTORIES(CLogStatic PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/Include)
+IF (TARGET LevinStatic)
+    TARGET_INCLUDE_DIRECTORIES(LevinStatic PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/Include)
 ENDIF ()
 
 # Test-program
 IF (CPPLOG_BUILD_TEST)
     FIND_PACKAGE(Threads)
 
-    ADD_EXECUTABLE(CLogTest "Main.cpp")
+    ADD_EXECUTABLE(LevinTest "Main.cpp")
 
-    TARGET_LINK_LIBRARIES(CLogTest CLog)
-    TARGET_LINK_LIBRARIES(CLogTest ${CMAKE_THREAD_LIBS_INIT})
+    TARGET_LINK_LIBRARIES(LevinTest Levin)
+    TARGET_LINK_LIBRARIES(LevinTest ${CMAKE_THREAD_LIBS_INIT})
 ENDIF ()

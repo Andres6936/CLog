@@ -4,7 +4,7 @@
 #include <ios>
 #include <iostream>
 
-using namespace CLog;
+using namespace Levin;
 
 Logger::Logger() noexcept : writeLock()
 {

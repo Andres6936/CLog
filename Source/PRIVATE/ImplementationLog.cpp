@@ -4,23 +4,23 @@
 #include <mutex>
 #include <queue>
 
-using namespace CLog::Internal;
+using namespace Levin::Internal;
 
 // Global logger
 #ifndef CPPLOG_CUSTOM_LOGGER
 
-std::unique_ptr <CLog::Logger> CLog::LOGGER =
-		std::unique_ptr <CLog::Logger>(new CLog::ConsoleLogger());
+std::unique_ptr <Levin::Logger> Levin::LOGGER =
+		std::unique_ptr <Levin::Logger>(new Levin::ConsoleLogger());
 
 #endif
 
-thread_local Local CLog::Internal::local;
+thread_local Local Levin::Internal::local;
 
-Local::Local() noexcept : level{ CLog::Level::DEBUG }
+Local::Local() noexcept : level{ Levin::Level::DEBUG }
 {
 }
 
-void CLog::Internal::AppendLog(CLog::Level level, const std::wstring& basicString)
+void Levin::Internal::AppendLog(Levin::Level level, const std::wstring& basicString)
 {
-	CLog::LOGGER->message(level, basicString);
+	Levin::LOGGER->message(level, basicString);
 }

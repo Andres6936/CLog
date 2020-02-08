@@ -14,21 +14,21 @@ static void logThread()
 
 	while (true)
 	{
-		CLog::Debug() << "Test from: " << threadID << CLog::endl;
+		Levin::Debug() << "Test from: " << threadID << Levin::endl;
 
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
-		CLog::Error() << "Test 2 from : " << threadID << CLog::endl;
+		Levin::Error() << "Test 2 from : " << threadID << Levin::endl;
 
-		CLog::Info() << "Lazy Standarging!" << CLog::endl;
+		Levin::Info() << "Lazy Standarging!" << Levin::endl;
 
-		CLog::Info() << "More lazy logging" << CLog::endl;
+		Levin::Info() << "More lazy logging" << Levin::endl;
 
-		CLog::Debug() << "Even more lazy logging" << CLog::endl;
+		Levin::Debug() << "Even more lazy logging" << Levin::endl;
 
-		CLog::Warn() << "Warning" << CLog::endl;
+		Levin::Warn() << "Warning" << Levin::endl;
 
-		CLog::Severe() << "Severe" << CLog::endl;
+		Levin::Severe() << "Severe" << Levin::endl;
 	}
 }
 
@@ -37,9 +37,9 @@ static void logThread()
  */
 int main(int argc, char** argv)
 {
-	CLog::LOGGER.reset(new CLog::ColoredLogger(std::wcout));
+	Levin::LOGGER.reset(new Levin::ColoredLogger(std::wcout));
 
-	CLog::Info() << "Dummy" << CLog::endl;
+	Levin::Info() << "Dummy" << Levin::endl;
 
 	for (int i = 0; i < 10; i++)
 	{
@@ -48,11 +48,11 @@ int main(int argc, char** argv)
 
 	while (true)
 	{
-		CLog::Debug() << std::string("Test") << CLog::endl;
+		Levin::Debug() << std::string("Test") << Levin::endl;
 
 		std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
-		CLog::Error() << "Test2" << CLog::endl;
+		Levin::Error() << "Test2" << Levin::endl;
 	}
 
 	return 0;

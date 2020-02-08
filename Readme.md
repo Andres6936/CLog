@@ -1,4 +1,4 @@
-# CLog
+# Levin
 
 A very light-weight thread-safe extensible logging framework for C++.
 
@@ -6,7 +6,7 @@ This framework makes data-races in log-outputs a thing of the past.
 
 ## Framework
 
-CppLog is a very small library consisting of only two public header files:
+Levin is a very small library consisting of only two public header files:
 
 - Log.h: This header defines the logging-methods, include it in any source-file
 you want to log something in
@@ -27,24 +27,24 @@ thread-safe fashion.
     #include "Log.h"
     
     //Where you want to log:
-    CLog::Debug() << "This is a debug message" << CLog::endl;
-    CLog::Info() << "This is purely informational" << CLog::endl;
-    CLog::Warn() << "Supports full C++ stream syntax, hence we can log " << 12 << " as well as " << 42.42 << CLog::endl;
-    CLog::Error() << "Something bad happened here!" << CLog::endl;
-    CLog::Severe() << "Something really catastrophic happened! Do somthing, NOW!!" << CLog::endl;
+    Levin::Debug() << "This is a debug message" << Levin::endl;
+    Levin::Info() << "This is purely informational" << Levin::endl;
+    Levin::Warn() << "Supports full C++ stream syntax, hence we can log " << 12 << " as well as " << 42.42 << Levin::endl;
+    Levin::Error() << "Something bad happened here!" << Levin::endl;
+    Levin::Severe() << "Something really catastrophic happened! Do somthing, NOW!!" << Levin::endl;
 ```
 
 ## Configuration
 
-CppLog can optionally be configured in several ways:
+Levin can optionally be configured in several ways:
 
 - Setting the global variable **LOGGER** in the framework's namespace
-(by default **CLog::LOGGER**) determines the logger to be used.
+(by default **Levin::LOGGER**) determines the logger to be used.
 Resetting **LOGGER** to the *nullptr* disables logging for the remainder of the program's life. 
 This also shuts down the logging-thread, so no CPU time is wasted. By default, the **LOGGER** is set to **ConsoleLogger** (see section Extensions).
 
 ## Extensions
-In the current version, CppLog comes with three built-in Loggers:
+In the current version, Levin comes with three built-in Loggers:
 
 - ConsoleLogger: writes every log to *std::cout* and *std::cerr*, 
 where any log with the levels **ERROR** and **SEVERE** are written to *std::cerr* and any other log goes to *std::cout*.

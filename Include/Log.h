@@ -6,7 +6,7 @@
 #include <ostream>
 #include <string>
 
-namespace CLog
+namespace Levin
 {
 	enum class Level : unsigned char
 	{
@@ -23,27 +23,27 @@ namespace CLog
 
 	inline std::wostream& Debug()
 	{
-		return CLog::Log(Level::DEBUG);
+		return Levin::Log(Level::DEBUG);
 	}
 
 	inline std::wostream& Info()
 	{
-		return CLog::Log(Level::INFO);
+		return Levin::Log(Level::INFO);
 	}
 
 	inline std::wostream& Warn()
 	{
-		return CLog::Log(Level::WARNING);
+		return Levin::Log(Level::WARNING);
 	}
 
 	inline std::wostream& Error()
 	{
-		return CLog::Log(Level::ERROR);
+		return Levin::Log(Level::ERROR);
 	}
 
 	inline std::wostream& Severe()
 	{
-		return CLog::Log(Level::SEVERE);
+		return Levin::Log(Level::SEVERE);
 	}
 
 	// Forward-declaration for the logger-instance

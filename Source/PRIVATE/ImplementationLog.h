@@ -6,7 +6,7 @@
 #include <chrono>
 #include <sstream>
 
-namespace CLog::Internal
+namespace Levin::Internal
 {
 	class Local
 	{
@@ -15,14 +15,14 @@ namespace CLog::Internal
 
 		std::wstringstream stream;
 
-		CLog::Level level;
+		Levin::Level level;
 
 		explicit Local() noexcept;
 	};
 
 	extern thread_local Local local;
 
-	void AppendLog(CLog::Level level, const std::wstring& basicString);
+	void AppendLog(Levin::Level level, const std::wstring& basicString);
 }
 
 #endif /* LOG_IMPL_H */

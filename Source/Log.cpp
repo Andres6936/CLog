@@ -8,29 +8,29 @@
 #include <sstream>
 #include <vector>
 
-using namespace CLog;
+using namespace Levin;
 
-std::wostream& CLog::Log(Level level)
+std::wostream& Levin::Log(Level level)
 {
-	CLog::Internal::local.level = level;
-	return CLog::Internal::local.stream;
+	Levin::Internal::local.level = level;
+	return Levin::Internal::local.stream;
 }
 
-std::wostream& CLog::endl(std::wostream& stream)
+std::wostream& Levin::endl(std::wostream& stream)
 {
 	stream << std::endl;
-	if (!CLog::Internal::local.stream.bad())
+	if (!Levin::Internal::local.stream.bad())
 	{
 		// only write to underyling logger, if we didn't set the bad-bit
-		CLog::Internal::AppendLog(CLog::Internal::local.level,
-				CLog::Internal::local.stream.str());
+		Levin::Internal::AppendLog(Levin::Internal::local.level,
+				Levin::Internal::local.stream.str());
 	}
 
 	// reset stream-data (and state)
-	CLog::Internal::local.stream.str(std::wstring());
-	CLog::Internal::local.stream.clear();
+	Levin::Internal::local.stream.str(std::wstring());
+	Levin::Internal::local.stream.clear();
 
-	return CLog::Internal::local.stream;
+	return Levin::Internal::local.stream;
 }
 
 std::wostream& operator<<(std::wostream& stream, const std::string& string)

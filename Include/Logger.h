@@ -7,7 +7,7 @@
 #include <fstream>
 #include <mutex>
 
-namespace CLog
+namespace Levin
 {
 	class Logger
 	{

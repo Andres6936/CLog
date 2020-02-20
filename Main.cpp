@@ -14,7 +14,7 @@ static void logThread()
 	{
 		Levin::Debug() << "Test from: " << threadID << Levin::endl;
 
-		std::this_thread::sleep_for(std::chrono::milliseconds(10));
+		std::this_thread::sleep_for(std::chrono::milliseconds(150));
 
 		Levin::Error() << "Test 2 from : " << threadID << Levin::endl;
 
@@ -45,7 +45,7 @@ int main(int argc, char** argv)
 	{
 		Levin::Debug() << std::string("Test") << Levin::endl;
 
-		std::this_thread::sleep_for(std::chrono::milliseconds(10));
+		std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
 		Levin::Error() << "Test2" << Levin::endl;
 	}

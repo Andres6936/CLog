@@ -7,7 +7,7 @@ SET(CMAKE_CXX_EXTENSIONS OFF)
 
 PROJECT(Levin VERSION 0.4)
 
-OPTION(CPPLOG_BUILD_TEST "Build the concurrency test-application" ON)
+OPTION(LEVIN_BUILD_TEST "Build the concurrency test-application" ON)
 
 INCLUDE_DIRECTORIES(Include)
 
@@ -25,21 +25,16 @@ IF (WIN32)
     TARGET_COMPILE_OPTIONS(Levin PRIVATE /W3 /D_UNICODE /DUNICODE)
 ELSE ()
     ADD_LIBRARY(Levin SHARED ${SRCS})
-    ADD_LIBRARY(LevinStatic STATIC ${SRCS})
     TARGET_COMPILE_OPTIONS(Levin PRIVATE -O3 -Wall -Wextra -Wno-return-type -Wno-unused-parameter -Wno-missing-field-initializers -Wpedantic -pthread -fPIC)
-    TARGET_COMPILE_OPTIONS(LevinStatic PRIVATE -O3 -Wall -Wextra -Wno-return-type -Wno-unused-parameter -Wno-missing-field-initializers -Wpedantic -pthread -fPIC)
 ENDIF ()
 
-IF (TARGET LevinStatic)
-    TARGET_INCLUDE_DIRECTORIES(LevinStatic PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/Include)
-ENDIF ()
 
 # Test-program
-IF (CPPLOG_BUILD_TEST)
+IF (LEVIN_BUILD_TEST)
     FIND_PACKAGE(Threads)
 
     ADD_EXECUTABLE(LevinTest "Main.cpp")
 
-    TARGET_LINK_LIBRARIES(LevinTest Levin)
-    TARGET_LINK_LIBRARIES(LevinTest ${CMAKE_THREAD_LIBS_INIT})
+    TARGET_LINK_LIBRARIES(LevinTest PRIVATE Levin)
+    TARGET_LINK_LIBRARIES(LevinTest PRIVATE ${CMAKE_THREAD_LIBS_INIT})
 ENDIF ()

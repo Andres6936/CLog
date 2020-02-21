@@ -2,12 +2,10 @@
 #include "Logger.h"
 
 #include <mutex>
-#include <queue>
 
 using namespace Levin::Internal;
 
-std::unique_ptr <Levin::Logger> Levin::LOGGER =
-		std::unique_ptr <Levin::Logger>(new Levin::ConsoleLogger());
+std::unique_ptr <Levin::Logger> Levin::LOGGER = std::make_unique <Levin::ConsoleLogger>();
 
 thread_local Local Levin::Internal::local;
 

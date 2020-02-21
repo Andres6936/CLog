@@ -10,16 +10,16 @@ Logger::Logger() noexcept : writeLock()
 {
 }
 
-std::string Logger::GetCurrentTime()
+std::string Logger::GetCurrentTime() const noexcept
 {
-	time_t now = time(nullptr);
-	std::string text = ctime(&now);
+	time_t now = std::time(nullptr);
+	std::string text = std::ctime(&now);
 	// required, since ctime (asctime) append a new-line
 	text.erase(text.find_last_of('\n'), 1);
 	return text;
 }
 
-std::wstring Logger::ToString(Level level)
+std::wstring Logger::ToString(Level level) const noexcept
 {
 	switch (level)
 	{
@@ -31,7 +31,8 @@ std::wstring Logger::ToString(Level level)
 		return L"[W]";
 	case Level::ERROR:
 		return L"[E]";
-	case Level::SEVERE:;
+	case Level::SEVERE:
+		return L"[S]";
 	}
 }
 
@@ -41,7 +42,7 @@ void ConsoleLogger::message(Level level, const std::wstring& local)
 {
 	std::lock_guard <std::mutex> guard(writeLock);
 
-	if (level == Level::ERROR || level == Level::SEVERE)
+	if (level == Level::ERROR or level == Level::SEVERE)
 	{
 		std::wcerr << ToString(level) << " " << GetCurrentTime() << ": " << local;
 	}
@@ -51,7 +52,7 @@ void ConsoleLogger::message(Level level, const std::wstring& local)
 	}
 }
 
-FileLogger::FileLogger(const std::string& fileName) : fileStream(fileName, std::ios::out)
+FileLogger::FileLogger(const std::string& fileName) noexcept : fileStream(fileName, std::ios::out)
 {
 }
 
@@ -68,7 +69,7 @@ void FileLogger::message(Level level, const std::wstring& local)
 	fileStream << ToString(level) << " " << GetCurrentTime() << ": " << local;
 }
 
-StreamLogger::StreamLogger(std::wostream& stream) : stream(stream)
+StreamLogger::StreamLogger(std::wostream& stream) noexcept : stream(stream)
 {
 }
 
@@ -79,7 +80,7 @@ void StreamLogger::message(Level level, const std::wstring& local)
 	stream << ToString(level) << " " << GetCurrentTime() << ": " << local;
 }
 
-ColoredLogger::ColoredLogger(std::wostream& stream) : StreamLogger(stream)
+ColoredLogger::ColoredLogger(std::wostream& stream) noexcept : StreamLogger(stream)
 {
 }
 
@@ -87,7 +88,7 @@ void ColoredLogger::message(Level level, const std::wstring& local)
 {
 	std::lock_guard <std::mutex> guard(writeLock);
 
-	if (level == Level::ERROR || level == Level::SEVERE)
+	if (level == Level::ERROR or level == Level::SEVERE)
 	{
 		// Output console in Red Darker
 		stream << "\033[1;31m" << ToString(level) << " " << GetCurrentTime() << ": " << local << "\033[0m";

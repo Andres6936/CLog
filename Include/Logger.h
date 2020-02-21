@@ -38,12 +38,12 @@ namespace Levin
 
 		Logger() noexcept;
 
-		virtual std::string GetCurrentTime();
+		[[nodiscard]] std::string GetCurrentTime() const noexcept;
 
-		virtual std::wstring ToString(Level level);
+		[[nodiscard]] std::wstring ToString(Level level) const noexcept;
 	};
 
-	class ConsoleLogger : public Logger
+	class ConsoleLogger final : public Logger
 	{
 
 	public:
@@ -63,12 +63,12 @@ namespace Levin
 		void message(Level level, const std::wstring& local) override;
 	};
 
-	class FileLogger : public Logger
+	class FileLogger final : public Logger
 	{
 
 	public:
 
-		explicit FileLogger(const std::string& fileName);
+		explicit FileLogger(const std::string& fileName) noexcept;
 
 		FileLogger(const FileLogger&) = delete;
 
@@ -92,7 +92,7 @@ namespace Levin
 
 	public:
 
-		explicit StreamLogger(std::wostream& stream);
+		explicit StreamLogger(std::wostream& stream) noexcept;
 
 		StreamLogger(const StreamLogger&) = delete;
 
@@ -111,12 +111,12 @@ namespace Levin
 		std::wostream& stream;
 	};
 
-	class ColoredLogger : public StreamLogger
+	class ColoredLogger final : public StreamLogger
 	{
 
 	public:
 
-		explicit ColoredLogger(std::wostream& stream);
+		explicit ColoredLogger(std::wostream& stream) noexcept;
 
 		ColoredLogger(const ColoredLogger&) = delete;
 

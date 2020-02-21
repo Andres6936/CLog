@@ -8,7 +8,7 @@
 
 namespace Levin::Internal
 {
-	class Local
+	class Local final
 	{
 
 	public:

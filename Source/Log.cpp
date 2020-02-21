@@ -12,25 +12,25 @@ using namespace Levin;
 
 std::wostream& Levin::Log(Level level)
 {
-	Levin::Internal::local.level = level;
-	return Levin::Internal::local.stream;
+	Internal::local.level = level;
+	return Internal::local.stream;
 }
 
 std::wostream& Levin::endl(std::wostream& stream)
 {
 	stream << std::endl;
-	if (!Levin::Internal::local.stream.bad())
+	if (!Internal::local.stream.bad())
 	{
 		// only write to underyling logger, if we didn't set the bad-bit
-		Levin::Internal::AppendLog(Levin::Internal::local.level,
-				Levin::Internal::local.stream.str());
+		Internal::AppendLog(Internal::local.level,
+				Internal::local.stream.str());
 	}
 
 	// reset stream-data (and state)
-	Levin::Internal::local.stream.str(std::wstring());
-	Levin::Internal::local.stream.clear();
+	Internal::local.stream.str(std::wstring());
+	Internal::local.stream.clear();
 
-	return Levin::Internal::local.stream;
+	return Internal::local.stream;
 }
 
 std::wostream& operator<<(std::wostream& stream, const std::string& string)

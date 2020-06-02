@@ -3,8 +3,8 @@
 #include <thread>
 #include <iostream>
 
-#include "Log.h"
-#include "Logger.h"
+#include "Levin/Log.h"
+#include "Levin/Logger.h"
 
 static void logThread()
 {

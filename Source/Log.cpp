@@ -1,6 +1,5 @@
 #include "Levin/Log.hpp"
-
-#include "PRIVATE/ImplementationLog.h"
+#include "Private/ImplementationLog.h"
 
 #include <cstdarg>
 #include <iosfwd>

@@ -24,7 +24,7 @@ thread-safe fashion.
 
 ```cpp
     //Top of the file:
-    #include "Log.h"
+    #include <Levin/Levin.hpp>
     
     //Where you want to log:
     Levin::Debug() << "This is a debug message" << Levin::endl;
@@ -38,22 +38,39 @@ thread-safe fashion.
 
 Levin can optionally be configured in several ways:
 
-- Setting the global variable **LOGGER** in the framework's namespace
-(by default **Levin::LOGGER**) determines the logger to be used.
-Resetting **LOGGER** to the *nullptr* disables logging for the remainder of the program's life. 
+Resetting **logger** to the `nullptr` disables logging for the remainder of the program's life. 
 This also shuts down the logging-thread, so no CPU time is wasted. By default, the **LOGGER** is set to **ConsoleLogger** (see section Extensions).
 
 ## Extensions
 In the current version, Levin comes with three built-in Loggers:
 
-- ConsoleLogger: writes every log to *std::cout* and *std::cerr*, 
-where any log with the levels **ERROR** and **SEVERE** are written to *std::cerr* and any other log goes to *std::cout*.
+- ConsoleLogger: writes every log to `std::cout` and `std::cerr`, where any log with the levels **ERROR** and 
+**SEVERE** are written to *std::cerr* and any other log goes to *std::cout*.
+
 This Logger is enabled by default.
 - FileLogger: Logs the output to a file, specified by a file-name given as constructor-argument.
-- ColoredLogger: Writes any log to *std::cout* but uses console colors to highlight more critical messages.
+- ColoredLogger: Writes any log to `std::cout` but uses console colors to highlight more critical messages.
 
 To write your own Logger, simply follow this easy steps:
 
 1. Write a Logger-class publicly extending **Logger** (in the header-file **Logger.h**) and overwrite at least **message**.
 2. Use the global variable **LOGGER** to set the logger to an instance of your custom class
 3. Done!
+
+### How to use
+To use this library, you need the script written by [TheLartians](https://github.com/TheLartians),
+named [CPM.cmake](https://github.com/TheLartians/CPM.cmake) (acronym for CMake
+Package Manager). Add it to your project, for example, under the
+`CMakeModules` and then in your `CMakeFiles.txt` write the following:
+
+```cmake
+Include(CMakeModules/CPM.cmake)
+
+CPMAddPackage(
+  NAME Levin
+  VERSION 2020.0602
+  GITHUB_REPOSITORY Andres6936/Levin
+)
+ 
+TARGET_LINK_LIBRARIES(<TARGET> PRIVATE Cup)
+```

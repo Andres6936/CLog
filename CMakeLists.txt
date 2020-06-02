@@ -11,7 +11,7 @@ ADD_LIBRARY(Levin
         Source/StreamLogger.cpp
         Source/ColoredLogger.cpp
         Source/ConsoleLogger.cpp
-        Source/PRIVATE/ImplementationLog.cpp)
+        Source/Private/ImplementationLog.cpp)
 
 SET_TARGET_PROPERTIES(Levin PROPERTIES CXX_STANDARD 17)
 

@@ -1,7 +1,7 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 
-#include "Log.hpp"
+#include "Level.hpp"
 
 #include <chrono>
 #include <fstream>

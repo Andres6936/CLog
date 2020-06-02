@@ -6,16 +6,11 @@
 #include <ostream>
 #include <string>
 
+#include "Logger.hpp"
+
 namespace Levin
 {
-	enum class Level : unsigned char
-	{
-		DEBUG = 'D',
-		INFO = 'I',
-		WARNING = 'W',
-		ERROR = 'E',
-		SEVERE = 'S'
-	};
+
 
 	std::wostream& Log(Level level);
 
@@ -45,9 +40,6 @@ namespace Levin
 	{
 		return Levin::Log(Level::SEVERE);
 	}
-
-	// Forward-declaration for the logger-instance
-	class Logger;
 
 	/*!
 	 * This is the Logger-instance being used to write the logs.

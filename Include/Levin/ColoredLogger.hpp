@@ -3,6 +3,7 @@
 #ifndef LEVIN_COLOREDLOGGER_HPP
 #define LEVIN_COLOREDLOGGER_HPP
 
+#include "Log.hpp"
 #include "StreamLogger.hpp"
 
 namespace Levin

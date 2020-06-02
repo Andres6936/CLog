@@ -3,7 +3,7 @@
 #ifndef LEVIN_STREAMLOGGER_HPP
 #define LEVIN_STREAMLOGGER_HPP
 
-#include "Logger.h"
+#include "Logger.hpp"
 
 namespace Levin
 {

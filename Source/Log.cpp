@@ -1,4 +1,4 @@
-#include "Levin/Log.h"
+#include "Levin/Log.hpp"
 
 #include "PRIVATE/ImplementationLog.h"
 

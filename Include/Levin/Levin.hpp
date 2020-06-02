@@ -7,7 +7,7 @@
 #include "ConsoleLogger.hpp"
 #include "StreamLogger.hpp"
 #include "FileLogger.hpp"
-#include "Logger.h"
-#include "Log.h"
+#include "Logger.hpp"
+#include "Log.hpp"
 
 #endif //LEVIN_LEVIN_HPP

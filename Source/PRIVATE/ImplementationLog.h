@@ -1,7 +1,7 @@
 #ifndef LOG_IMPL_H
 #define LOG_IMPL_H
 
-#include "Levin/Log.h"
+#include "Levin/Log.hpp"
 
 #include <chrono>
 #include <sstream>

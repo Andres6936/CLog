@@ -1,5 +1,5 @@
 #include "ImplementationLog.h"
-#include "Levin/Logger.h"
+#include "Levin/Logger.hpp"
 #include "Levin/ConsoleLogger.hpp"
 
 #include <mutex>

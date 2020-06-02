@@ -3,8 +3,7 @@
 #include <thread>
 #include <iostream>
 
-#include "Levin/Log.h"
-#include "Levin/Logger.h"
+#include "Levin/Levin.hpp"
 
 static void logThread()
 {
@@ -32,7 +31,7 @@ static void logThread()
 
 int main(int argc, char** argv)
 {
-	Levin::LOGGER = std::make_unique <Levin::ColoredLogger>(std::wcout);
+	Levin::logger = std::make_unique <Levin::ColoredLogger>(std::wcout);
 
 	Levin::Info() << "Dummy" << Levin::endl;
 

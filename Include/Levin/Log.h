@@ -55,7 +55,7 @@ namespace Levin
 	 * Use this variable to set a custom Logger-instance.
 	 * To disable logging (or stopping running logging), set this LOGGER to nullptr
 	 */
-	extern std::unique_ptr <Logger> LOGGER;
+	extern std::unique_ptr <Logger> logger;
 }
 
 /*!

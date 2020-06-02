@@ -7,6 +7,10 @@ OPTION(LEVIN_BUILD_TEST "Build the concurrency test-application" ON)
 ADD_LIBRARY(Levin
         Source/Log.cpp
         Source/Logger.cpp
+        Source/FileLogger.cpp
+        Source/StreamLogger.cpp
+        Source/ColoredLogger.cpp
+        Source/ConsoleLogger.cpp
         Source/PRIVATE/ImplementationLog.cpp)
 
 SET_TARGET_PROPERTIES(Levin PROPERTIES CXX_STANDARD 17)

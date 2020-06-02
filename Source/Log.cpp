@@ -2,7 +2,6 @@
 
 #include "PRIVATE/ImplementationLog.h"
 
-#include <chrono>
 #include <cstdarg>
 #include <iosfwd>
 #include <sstream>

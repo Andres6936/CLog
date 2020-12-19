@@ -41,10 +41,15 @@ void ColoredLogger::Message(SecurityLevel level, std::wstring_view local)
 {
 	std::lock_guard <std::mutex> guard(writeLock);
 
-	if (level >= SecurityLevel::Emergency and level <= SecurityLevel::Error)
+	if (level >= SecurityLevel::Emergency and level <= SecurityLevel::Critical)
 	{
 		// Output console in Red Darker
 		stream << "\033[1;31m" << ToString(level) << " " << GetCurrentTime() << ": " << local << "\033[0m";
+	}
+	else if (level == SecurityLevel::Error)
+	{
+		// Output console in Magenta Darker
+		stream << "\033[1;35m" << ToString(level) << " " << GetCurrentTime() << ": " << local << "\033[0m";
 	}
 	else if (level == SecurityLevel::Warning)
 	{

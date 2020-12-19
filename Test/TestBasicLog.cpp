@@ -21,9 +21,9 @@ int main()
 
 	Levin::logger = std::make_unique<ColoredLogger>(std::wcout);
 
-	Levin::Debug("Test Debug String") ;
+	Levin::Debug("Test Debug String {} {}", 12, 42.25) ;
 
-	Levin::Info("Test Info String") ;
+	Levin::Info("Test Info String {}", "Another Message") ;
 
 	Levin::Warn("Test Warn String") ;
 
@@ -33,9 +33,9 @@ int main()
 
 	Levin::logger = std::make_unique<FileLogger>("Test.BasicLog.txt");
 
-	Levin::Debug("Test Debug String") ;
+	Levin::Debug("Test Debug String {} {}", 12, 42.25) ;
 
-	Levin::Info("Test Info String") ;
+	Levin::Info("Test Info String {}", "Another Message") ;
 
 	Levin::Warn("Test Warn String") ;
 

@@ -46,11 +46,6 @@ void ColoredLogger::Message(SecurityLevel level, std::wstring_view local)
 		// Output console in Red Darker
 		stream << "\033[1;31m" << ToString(level) << " " << GetCurrentTime() << ": " << local << "\033[0m";
 	}
-	else if (level == SecurityLevel::Debug)
-	{
-		// Output console in Green Darker
-		stream << "\033[1;32m" << ToString(level) << " " << GetCurrentTime() << ": " << local << "\033[0m";
-	}
 	else if (level == SecurityLevel::Warning)
 	{
 		// Output console in Yellow Darker
@@ -60,6 +55,11 @@ void ColoredLogger::Message(SecurityLevel level, std::wstring_view local)
 	{
 		// Output console in Blue Darker
 		stream << "\033[1;34m" << ToString(level) << " " << GetCurrentTime() << ": " << local << "\033[0m";
+	}
+	else if (level == SecurityLevel::Debug)
+	{
+		// Output console in Green Darker
+		stream << "\033[1;32m" << ToString(level) << " " << GetCurrentTime() << ": " << local << "\033[0m";
 	}
 	else
 	{

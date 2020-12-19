@@ -8,34 +8,40 @@
 #include <string_view>
 
 #include "Logger.hpp"
+#include "Flossy/Flossy.hpp"
 
 namespace Levin
 {
 	void Log(Level level, std::string_view message);
 
-	inline void Debug(std::string_view message)
+	template<typename ... Values>
+	inline void Debug(const std::string& message, Values&& ... values)
 	{
-		Levin::Log(Level::DEBUG, message);
+		Levin::Log(Level::DEBUG, flossy::format(message, std::forward<Values>(values)...));
 	}
 
-	inline void Info(std::string_view message)
+	template<typename ... Values>
+	inline void Info(const std::string& message, Values&& ... values)
 	{
-		Levin::Log(Level::INFO, message);
+		Levin::Log(Level::INFO, flossy::format(message, std::forward<Values>(values)...));
 	}
 
-	inline void Warn(std::string_view message)
+	template<typename ... Values>
+	inline void Warn(const std::string& message, Values&& ... values)
 	{
-		Levin::Log(Level::WARNING, message);
+		Levin::Log(Level::WARNING, flossy::format(message, std::forward<Values>(values)...));
 	}
 
-	inline void Error(std::string_view message)
+	template<typename ... Values>
+	inline void Error(const std::string& message, Values&& ... values)
 	{
-		Levin::Log(Level::ERROR, message);
+		Levin::Log(Level::ERROR, flossy::format(message, std::forward<Values>(values)...));
 	}
 
-	inline void Severe(std::string_view message)
+	template<typename ... Values>
+	inline void Severe(const std::string& message, Values&& ... values)
 	{
-		Levin::Log(Level::SEVERE, message);
+		Levin::Log(Level::SEVERE, flossy::format(message, std::forward<Values>(values)...));
 	}
 
 	/*!

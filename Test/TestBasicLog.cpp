@@ -9,9 +9,9 @@ using namespace Levin;
 
 int main()
 {
-	Levin::Debug("Test Debug String") ;
+	Levin::Debug("Test Debug String {} {}", 12, 42.25) ;
 
-	Levin::Info("Test Info String") ;
+	Levin::Info("Test Info String {}", "Another Message") ;
 
 	Levin::Warn("Test Warn String") ;
 

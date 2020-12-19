@@ -22,6 +22,8 @@ namespace Levin
 	 * requested. That is, if messages are separated by individual severity, a
 	 * Warning level entry will also be included when filtering for Notice,
 	 * Info and Debug messages.
+	 *
+	 * Reference: RFC 5424 - Table 2. Syslog Message Severities
 	 */
 	enum class SecurityLevel : unsigned char
 	{

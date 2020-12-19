@@ -14,7 +14,7 @@ FileLogger::~FileLogger()
 	fileStream.close();
 }
 
-void FileLogger::message(Level level, const std::wstring& local)
+void FileLogger::message(Level level, std::wstring_view local)
 {
 	std::lock_guard <std::mutex> guard(writeLock);
 

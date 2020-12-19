@@ -5,40 +5,45 @@
 #include <memory>
 #include <ostream>
 #include <string>
+#include <string_view>
 
 #include "Logger.hpp"
 
 namespace Levin
 {
 
+	/*!
+ 	* Convenience-wrapper to allow writing std::string into std::wostream
+ 	*/
+	std::wostream& write(std::wostream& stream, std::string_view string);
 
 	std::wostream& Log(Level level);
 
 	std::wostream& endl(std::wostream& stream);
 
-	inline std::wostream& Debug()
+	inline void Debug(std::string_view message)
 	{
-		return Levin::Log(Level::DEBUG);
+		write(Levin::Log(Level::DEBUG) ,message) << Levin::endl;
 	}
 
-	inline std::wostream& Info()
+	inline void Info(std::string_view message)
 	{
-		return Levin::Log(Level::INFO);
+		write(Levin::Log(Level::INFO), message) << Levin::endl;
 	}
 
-	inline std::wostream& Warn()
+	inline void Warn(std::string_view message)
 	{
-		return Levin::Log(Level::WARNING);
+		write(Levin::Log(Level::WARNING), message) << Levin::endl;
 	}
 
-	inline std::wostream& Error()
+	inline void Error(std::string_view message)
 	{
-		return Levin::Log(Level::ERROR);
+		write(Levin::Log(Level::ERROR) ,message) << Levin::endl;
 	}
 
-	inline std::wostream& Severe()
+	inline void Severe(std::string_view message)
 	{
-		return Levin::Log(Level::SEVERE);
+		write(Levin::Log(Level::SEVERE) ,message) << Levin::endl;
 	}
 
 	/*!
@@ -49,10 +54,5 @@ namespace Levin
 	 */
 	extern std::unique_ptr <Logger> logger;
 }
-
-/*!
- * Convenience-wrapper to allow writing std::string into std::wostream
- */
-std::wostream& operator<<(std::wostream& stream, const std::string& string);
 
 #endif /* LOG_H */

@@ -9,13 +9,14 @@ Logger::Logger() noexcept : writeLock()
 {
 }
 
-std::string Logger::GetCurrentTime() const noexcept
+std::wstring Logger::GetCurrentTime() const noexcept
 {
 	time_t now = std::time(nullptr);
 	std::string text = std::ctime(&now);
 	// required, since ctime (asctime) append a new-line
 	text.erase(text.find_last_of('\n'), 1);
-	return text;
+	// Return the std::wstring (overload of std::string)
+	return { text.begin(), text.end() };
 }
 
 std::wstring Logger::ToString(Level level) const noexcept

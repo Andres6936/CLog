@@ -31,7 +31,7 @@ std::wostream& Levin::endl(std::wostream& stream)
 	return Internal::local.stream;
 }
 
-std::wostream& operator<<(std::wostream& stream, const std::string& string)
+std::wostream& Levin::write(std::wostream& stream, std::string_view string)
 {
 	std::vector <wchar_t> result(string.size());
 	size_t res = std::mbstowcs(result.data(), string.data(), string.size());

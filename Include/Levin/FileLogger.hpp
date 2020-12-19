@@ -26,7 +26,7 @@ namespace Levin
 
 		FileLogger& operator=(FileLogger&&) = delete;
 
-		void message(Level level, const std::wstring& local) override;
+		void message(Level level, std::wstring_view local) override;
 
 	private:
 

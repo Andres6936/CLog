@@ -22,7 +22,7 @@ namespace Levin::Internal
 
 	extern thread_local Local local;
 
-	void AppendLog(Levin::Level level, const std::wstring& basicString);
+	void AppendLog(Levin::Level level, std::wstring_view basicString);
 }
 
 #endif /* LOG_IMPL_H */

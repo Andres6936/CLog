@@ -30,7 +30,7 @@ namespace Levin
 		 * @note: Implementations of this method need to be thread-safe, e.g.
 		 * this method can be written to from multiple threads concurrently.
 		 */
-		virtual void message(Level level, const std::wstring& local) = 0;
+		virtual void message(Level level, std::wstring_view local) = 0;
 
 	protected:
 
@@ -38,7 +38,7 @@ namespace Levin
 
 		Logger() noexcept;
 
-		[[nodiscard]] std::string GetCurrentTime() const noexcept;
+		[[nodiscard]] std::wstring GetCurrentTime() const noexcept;
 
 		[[nodiscard]] std::wstring ToString(Level level) const noexcept;
 	};

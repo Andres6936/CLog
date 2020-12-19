@@ -9,6 +9,12 @@
 
 namespace Levin
 {
+	/**
+	 * One of the primary benefits of using data loggers is the ability to
+	 * automatically collect data on a 24-hour basis. Upon activation, data
+	 * loggers are typically deployed and left unattended to measure and record
+	 * information for the duration of the monitoring period.
+	 */
 	class Logger
 	{
 

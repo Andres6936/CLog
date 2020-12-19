@@ -32,6 +32,8 @@ ColoredLogger::ColoredLogger(std::wostream& stream) noexcept : StreamLogger(stre
  *
  * @example echo -e "\e[1;42m ...
  *
+ * Reference: Linux Shell Scripting Cookbook - Third Edition
+ *
  * @param level
  * @param local
  */

@@ -67,9 +67,9 @@ std::wstring Logger::ToString(SecurityLevel level) const noexcept
 	case SecurityLevel::Emergency:
 		return L"[E]";
 	case SecurityLevel::Alert:
-		return L"A";
+		return L"[A]";
 	case SecurityLevel::Critical:
-		return L"C";
+		return L"[C]";
 	default:
 		return L"[U]";
 	}

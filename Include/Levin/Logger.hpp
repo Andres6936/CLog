@@ -30,7 +30,7 @@ namespace Levin
 		 * @note: Implementations of this method need to be thread-safe, e.g.
 		 * this method can be written to from multiple threads concurrently.
 		 */
-		virtual void message(Level level, std::wstring_view local) = 0;
+		virtual void Message(Level level, std::wstring_view local) = 0;
 
 	protected:
 

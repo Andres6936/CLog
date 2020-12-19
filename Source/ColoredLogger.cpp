@@ -8,7 +8,7 @@ ColoredLogger::ColoredLogger(std::wostream& stream) noexcept : StreamLogger(stre
 {
 }
 
-void ColoredLogger::message(Level level, std::wstring_view local)
+void ColoredLogger::Message(Level level, std::wstring_view local)
 {
 	std::lock_guard <std::mutex> guard(writeLock);
 

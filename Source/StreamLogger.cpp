@@ -9,7 +9,7 @@ StreamLogger::StreamLogger(std::wostream& stream) noexcept : stream(stream)
 {
 }
 
-void StreamLogger::message(Level level, std::wstring_view local)
+void StreamLogger::Message(Level level, std::wstring_view local)
 {
 	std::lock_guard <std::mutex> guard(writeLock);
 

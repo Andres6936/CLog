@@ -7,7 +7,7 @@ using namespace Levin;
 
 ConsoleLogger::ConsoleLogger() noexcept = default;
 
-void ConsoleLogger::message(Level level, std::wstring_view local)
+void ConsoleLogger::Message(Level level, std::wstring_view local)
 {
 	std::lock_guard <std::mutex> guard(writeLock);
 

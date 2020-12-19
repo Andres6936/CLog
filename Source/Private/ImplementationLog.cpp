@@ -16,5 +16,5 @@ Local::Local() noexcept : level{ Levin::Level::DEBUG }
 
 void Levin::Internal::AppendLog(Levin::Level level, std::wstring_view basicString)
 {
-	Levin::logger->message(level, basicString);
+	Levin::logger->Message(level, basicString);
 }

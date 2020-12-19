@@ -10,7 +10,7 @@ std::unique_ptr <Levin::Logger> Levin::logger = std::make_unique <Levin::Console
 
 thread_local Local Levin::Internal::local;
 
-Local::Local() noexcept : level{ Levin::Level::DEBUG }
+Local::Local() noexcept : level{ Levin::Level::Debug }
 {
 }
 

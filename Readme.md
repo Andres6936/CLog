@@ -31,7 +31,7 @@ thread-safe fashion.
     Levin::Info("This is purely informational");
     Levin::Warn("Supports full C++ stream syntax, hence we can log {} as well as {}", 12, 42.42);
     Levin::Error("Something bad happened here!");
-    Levin::Severe("Something really catastrophic happened! Do somthing, NOW!!");
+    Levin::Notice("Something really catastrophic happened! Do somthing, NOW!!");
 ```
 
 ## Configuration
@@ -44,8 +44,8 @@ This also shuts down the logging-thread, so no CPU time is wasted. By default, t
 ## Extensions
 In the current version, Levin comes with three built-in Loggers:
 
-- ConsoleLogger: writes every log to `std::cout` and `std::cerr`, where any log with the levels **ERROR** and 
-**SEVERE** are written to *std::cerr* and any other log goes to *std::cout*.
+- ConsoleLogger: writes every log to `std::cout` and `std::cerr`, where any log with the levels **Error** and 
+**Notice** are written to *std::cerr* and any other log goes to *std::cout*.
 
 This Logger is enabled by default.
 - FileLogger: Logs the output to a file, specified by a file-name given as constructor-argument.

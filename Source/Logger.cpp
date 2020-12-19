@@ -54,15 +54,15 @@ std::wstring Logger::ToString(Level level) const noexcept
 {
 	switch (level)
 	{
-	case Level::DEBUG:
+	case Level::Debug:
 		return L"[D]";
-	case Level::INFO:
+	case Level::Informational:
 		return L"[I]";
-	case Level::WARNING:
+	case Level::Warning:
 		return L"[W]";
-	case Level::ERROR:
+	case Level::Error:
 		return L"[E]";
-	case Level::SEVERE:
+	case Level::Notice:
 		return L"[S]";
 	default:
 		return L"[U]";

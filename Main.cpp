@@ -25,7 +25,7 @@ static void logThread()
 
 		Levin::Warn() << "Warning" << Levin::endl;
 
-		Levin::Severe() << "Severe" << Levin::endl;
+		Levin::Severe() << "Notice" << Levin::endl;
 	}
 }
 

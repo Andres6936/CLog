@@ -17,7 +17,7 @@ int main()
 
 	Levin::Error("Test Error String") ;
 
-	Levin::Severe("Test Severe String") ;
+	Levin::Severe("Test Notice String") ;
 
 	Levin::logger = std::make_unique<ColoredLogger>(std::wcout);
 
@@ -29,7 +29,7 @@ int main()
 
 	Levin::Error("Test Error String") ;
 
-	Levin::Severe("Test Severe String") ;
+	Levin::Severe("Test Notice String") ;
 
 	Levin::logger = std::make_unique<FileLogger>("Test.BasicLog.txt");
 
@@ -41,5 +41,5 @@ int main()
 
 	Levin::Error("Test Error String") ;
 
-	Levin::Severe("Test Severe String") ;
+	Levin::Severe("Test Notice String") ;
 }

@@ -27,11 +27,11 @@ thread-safe fashion.
     #include <Levin/Levin.hpp>
     
     //Where you want to log:
-    Levin::Debug() << "This is a debug message" << Levin::endl;
-    Levin::Info() << "This is purely informational" << Levin::endl;
-    Levin::Warn() << "Supports full C++ stream syntax, hence we can log " << 12 << " as well as " << 42.42 << Levin::endl;
-    Levin::Error() << "Something bad happened here!" << Levin::endl;
-    Levin::Severe() << "Something really catastrophic happened! Do somthing, NOW!!" << Levin::endl;
+    Levin::Debug("This is a debug message");
+    Levin::Info("This is purely informational");
+    Levin::Warn("Supports full C++ stream syntax, hence we can log {} as well as {}", 12, 42.42);
+    Levin::Error("Something bad happened here!");
+    Levin::Severe("Something really catastrophic happened! Do somthing, NOW!!");
 ```
 
 ## Configuration

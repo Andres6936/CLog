@@ -4,6 +4,20 @@
 
 using namespace Levin;
 
+std::wstring Levin::ToMultibyteCharacter(std::string_view source)
+{
+	std::vector<wchar_t> result(source.size());
+	// Converts a multibyte character string from the array whose first element
+	// is pointed to by src to its wide character representation. Converted
+	// characters are stored in the successive elements of the array pointed to
+	// by dst. No more than len wide characters are written to the destination
+	// array.
+	// The firm of method std::mbstowcs is (dst, src, len)
+	std::size_t status = std::mbstowcs(result.data(), source.data(), source.size());
+	// Return the conversion made to text (std::wstring)
+	return { result.data(), status };
+}
+
 Logger::Logger() noexcept : writeLock()
 {
 }
@@ -18,16 +32,7 @@ std::wstring Logger::GetCurrentTime() const noexcept
 	// required, since ctime (asctime) append a new-line
 	text.erase(text.find_last_of('\n'), 1);
 
-	std::vector<wchar_t> result(text.size());
-	// Converts a multibyte character string from the array whose first element
-	// is pointed to by src to its wide character representation. Converted
-	// characters are stored in the successive elements of the array pointed to
-	// by dst. No more than len wide characters are written to the destination
-	// array.
-	// The firm of method std::mbstowcs is (dst, src, len)
-	std::size_t status = std::mbstowcs(result.data(), text.data(), text.size());
-	// Return the conversion made to text (std::wstring)
-	return { result.data(), status };
+	return ToMultibyteCharacter(text);
 }
 
 std::wstring Logger::ToString(Level level) const noexcept

@@ -42,6 +42,8 @@ namespace Levin
 
 		[[nodiscard]] std::wstring ToString(Level level) const noexcept;
 	};
+
+	std::wstring ToMultibyteCharacter(std::string_view source);
 }
 
 #endif /* LOGGER_H */

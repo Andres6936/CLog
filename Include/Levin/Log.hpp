@@ -11,15 +11,7 @@
 
 namespace Levin
 {
-
-	/*!
- 	* Convenience-wrapper to allow writing std::string into std::wostream
- 	*/
-	std::wostream& write(std::wostream& stream, std::string_view string);
-
 	std::wostream& Log(Level level, std::string_view message);
-
-	std::wostream& endl(std::wostream& stream);
 
 	inline void Debug(std::string_view message)
 	{

@@ -8,13 +8,7 @@
 
 using namespace Levin;
 
-std::wostream& Levin::Log(Level level, std::string_view message)
-{
-	Internal::local.level = level;
-	return write(Internal::local.stream, message) << Levin::endl;
-}
-
-std::wostream& Levin::endl(std::wostream& stream)
+static std::wostream& End(std::wostream& stream)
 {
 	stream << std::endl;
 	if (!Internal::local.stream.bad())
@@ -31,7 +25,10 @@ std::wostream& Levin::endl(std::wostream& stream)
 	return Internal::local.stream;
 }
 
-std::wostream& Levin::write(std::wostream& stream, std::string_view string)
+/**
+ * Convenience-wrapper to allow writing std::string into std::wostream
+ */
+static std::wostream& Write(std::wostream& stream, std::string_view string)
 {
 	std::vector <wchar_t> result(string.size());
 	size_t res = std::mbstowcs(result.data(), string.data(), string.size());
@@ -41,4 +38,10 @@ std::wostream& Levin::write(std::wostream& stream, std::string_view string)
 		return stream;
 	}
 	return stream << std::wstring(result.data(), res);
+}
+
+std::wostream& Levin::Log(Level level, std::string_view message)
+{
+	Internal::local.level = level;
+	return Write(Internal::local.stream, message) << End;
 }

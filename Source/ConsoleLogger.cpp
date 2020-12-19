@@ -11,7 +11,7 @@ void ConsoleLogger::Message(SecurityLevel level, std::wstring_view local)
 {
 	std::lock_guard <std::mutex> guard(writeLock);
 
-	if (level == SecurityLevel::Error or level == SecurityLevel::Notice)
+	if (level >= SecurityLevel::Emergency and level <= SecurityLevel::Error)
 	{
 		std::wcerr << ToString(level) << " " << GetCurrentTime() << ": " << local;
 	}

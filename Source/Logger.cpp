@@ -13,6 +13,12 @@ std::wstring Levin::MultiByteToWideChar(std::string_view source)
 	// by dst. No more than len wide characters are written to the destination
 	// array.
 	// The firm of method std::mbstowcs is (dst, src, len)
+
+	// Each character is converted as if by a call to std::mbtowc, except that
+	// the mbtowc conversion state is unaffected. The conversion stops if:
+	// - The multibyte null character was converted and stored.
+	// - An invalid (in the current C locale) multibyte character was encountered.
+	// - The next wide character to be stored would exceed len.
 	std::size_t status = std::mbstowcs(result.data(), source.data(), source.size());
 	// Return the conversion made to text (std::wstring)
 	return { result.data(), status };

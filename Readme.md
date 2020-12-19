@@ -57,6 +57,15 @@ To write your own Logger, simply follow this easy steps:
 2. Use the global variable **LOGGER** to set the logger to an instance of your custom class
 3. Done!
 
+### How to Compile
+
+```shell
+git clone --recursive --depth=1 https://github.com/Andres6936/Levin.git
+cd Levin && mkdir Build
+cd Build && cmake ..
+make 
+```
+
 ### How to use
 To use this library, you need the script written by [TheLartians](https://github.com/TheLartians),
 named [CPM.cmake](https://github.com/TheLartians/CPM.cmake) (acronym for CMake

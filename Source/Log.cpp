@@ -31,6 +31,12 @@ static std::wostream& End(std::wostream& stream)
 static std::wostream& Write(std::wostream& stream, std::string_view string)
 {
 	std::vector <wchar_t> result(string.size());
+	// Converts a multibyte character string from the array whose first element
+	// is pointed to by src to its wide character representation. Converted
+	// characters are stored in the successive elements of the array pointed to
+	// by dst. No more than len wide characters are written to the destination
+	// array.
+	// The firm of method std::mbstowcs is (dst, src, len)
 	size_t res = std::mbstowcs(result.data(), string.data(), string.size());
 	if (res == static_cast<std::size_t>(-1))
 	{

@@ -12,10 +12,13 @@ Logger::Logger() noexcept : writeLock()
 std::wstring Logger::GetCurrentTime() const noexcept
 {
 	time_t now = std::time(nullptr);
+	// Converts given time since epoch to a calendar local time and then to a
+	// textual representation, the type of return is char*, should be convert
+	// to std::string
 	std::string text = std::ctime(&now);
 	// required, since ctime (asctime) append a new-line
 	text.erase(text.find_last_of('\n'), 1);
-	// Return the std::wstring (overload of std::string)
+	// Convert the std::string to std::wstring
 	return { text.begin(), text.end() };
 }
 

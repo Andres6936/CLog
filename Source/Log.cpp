@@ -2,9 +2,6 @@
 #include "Private/ImplementationLog.h"
 
 #include <cstdarg>
-#include <iosfwd>
-#include <sstream>
-#include <vector>
 
 using namespace Levin;
 

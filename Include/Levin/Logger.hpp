@@ -47,6 +47,9 @@ namespace Levin
 	 * Maps a character string to a UTF-16 (wide character) string.
 	 * The character string is not necessarily from a multibyte character set.
 	 *
+	 * @note This function is Thread Safe, can be called simultaneously by two
+	 * threads.
+	 *
 	 * @param source Pointer (string_view) to the character string to convert.
 	 * @return The wide character representation of source.
 	 */

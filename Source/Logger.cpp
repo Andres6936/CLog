@@ -4,7 +4,7 @@
 
 using namespace Levin;
 
-std::wstring Levin::ToMultibyteCharacter(std::string_view source)
+std::wstring Levin::MultiByteToWideChar(std::string_view source)
 {
 	std::vector<wchar_t> result(source.size());
 	// Converts a multibyte character string from the array whose first element
@@ -32,7 +32,7 @@ std::wstring Logger::GetCurrentTime() const noexcept
 	// required, since ctime (asctime) append a new-line
 	text.erase(text.find_last_of('\n'), 1);
 
-	return ToMultibyteCharacter(text);
+	return MultiByteToWideChar(text);
 }
 
 std::wstring Logger::ToString(Level level) const noexcept

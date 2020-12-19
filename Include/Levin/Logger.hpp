@@ -44,12 +44,13 @@ namespace Levin
 	};
 
 	/**
-	 * Converts the source (string) to a multibyte character representation.
+	 * Maps a character string to a UTF-16 (wide character) string.
+	 * The character string is not necessarily from a multibyte character set.
 	 *
 	 * @param source String without a wide character representation.
 	 * @return The wide character representation of source.
 	 */
-	std::wstring ToMultibyteCharacter(std::string_view source);
+	std::wstring MultiByteToWideChar(std::string_view source);
 }
 
 #endif /* LOGGER_H */

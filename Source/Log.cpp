@@ -8,10 +8,10 @@
 
 using namespace Levin;
 
-std::wostream& Levin::Log(Level level)
+std::wostream& Levin::Log(Level level, std::string_view message)
 {
 	Internal::local.level = level;
-	return Internal::local.stream;
+	return write(Internal::local.stream, message) << Levin::endl;
 }
 
 std::wostream& Levin::endl(std::wostream& stream)

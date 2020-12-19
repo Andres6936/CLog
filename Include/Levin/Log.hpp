@@ -17,33 +17,33 @@ namespace Levin
  	*/
 	std::wostream& write(std::wostream& stream, std::string_view string);
 
-	std::wostream& Log(Level level);
+	std::wostream& Log(Level level, std::string_view message);
 
 	std::wostream& endl(std::wostream& stream);
 
 	inline void Debug(std::string_view message)
 	{
-		write(Levin::Log(Level::DEBUG) ,message) << Levin::endl;
+		Levin::Log(Level::DEBUG, message);
 	}
 
 	inline void Info(std::string_view message)
 	{
-		write(Levin::Log(Level::INFO), message) << Levin::endl;
+		Levin::Log(Level::INFO, message);
 	}
 
 	inline void Warn(std::string_view message)
 	{
-		write(Levin::Log(Level::WARNING), message) << Levin::endl;
+		Levin::Log(Level::WARNING, message);
 	}
 
 	inline void Error(std::string_view message)
 	{
-		write(Levin::Log(Level::ERROR) ,message) << Levin::endl;
+		Levin::Log(Level::ERROR, message);
 	}
 
 	inline void Severe(std::string_view message)
 	{
-		write(Levin::Log(Level::SEVERE) ,message) << Levin::endl;
+		Levin::Log(Level::SEVERE, message);
 	}
 
 	/*!

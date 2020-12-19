@@ -39,5 +39,7 @@ std::wstring Logger::ToString(Level level) const noexcept
 		return L"[E]";
 	case Level::SEVERE:
 		return L"[S]";
+	default:
+		return L"[U]";
 	}
 }

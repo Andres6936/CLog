@@ -1,8 +1,5 @@
 #include "Levin/Logger.hpp"
 
-#include <ctime>
-#include <ios>
-
 using namespace Levin;
 
 Logger::Logger() noexcept : writeLock()

@@ -16,6 +16,12 @@ namespace Levin
 	 * information, an error in the final step should be assigned Alert level.
 	 * However, an error occurring in an attempt to display the ZIP code of the
 	 * customer may be assigned Error or even Warning level.
+	 *
+	 * The server process which handles display of messages usually includes
+	 * all lower (more severe) levels when display of less severe levels is
+	 * requested. That is, if messages are separated by individual severity, a
+	 * Warning level entry will also be included when filtering for Notice,
+	 * Info and Debug messages.
 	 */
 	enum class Level : unsigned char
 	{

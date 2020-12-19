@@ -20,16 +20,8 @@ static std::wostream& End(std::wostream& stream)
 	return Internal::local.stream;
 }
 
-/**
- * Convenience-wrapper to allow writing std::string into std::wostream
- */
-static std::wostream& Write(std::wostream& stream, std::string_view string)
-{
-	return stream << ToMultibyteCharacter(string);
-}
-
-std::wostream& Levin::Log(Level level, std::string_view message)
+void Levin::Log(Level level, std::string_view message)
 {
 	Internal::local.level = level;
-	return Write(Internal::local.stream, message) << End;
+	Internal::local.stream << ToMultibyteCharacter(message) << End;
 }

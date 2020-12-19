@@ -11,7 +11,7 @@
 
 namespace Levin
 {
-	std::wostream& Log(Level level, std::string_view message);
+	void Log(Level level, std::string_view message);
 
 	inline void Debug(std::string_view message)
 	{

@@ -25,13 +25,21 @@ namespace Levin
 	 */
 	enum class Level : unsigned char
 	{
+		// System is unusable
 		Emergency = 0,
+		// Action must be taken immediately
 		Alert = 1,
+		// Critical conditions
 		Critical = 2,
+		// Error conditions
 		Error = 3,
+		// Warning conditions
 		Warning = 4,
+		// 	Normal but significant conditions
 		Notice = 5,
+		// 	Informational messages
 		Informational = 6,
+		// 	Debug-level messages
 		Debug = 7,
 	};
 

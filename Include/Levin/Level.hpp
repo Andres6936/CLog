@@ -6,6 +6,10 @@
 namespace Levin
 {
 
+	/**
+	 * Each message is labeled with a facility code, indicating the software
+	 * type generating the message, and assigned a severity level.
+	 */
 	enum class Level : unsigned char
 	{
 		DEBUG = 'D',

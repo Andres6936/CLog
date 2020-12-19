@@ -1,5 +1,7 @@
 #include "Levin/Logger.hpp"
 
+#include <vector>
+
 using namespace Levin;
 
 Logger::Logger() noexcept : writeLock()
@@ -15,11 +17,17 @@ std::wstring Logger::GetCurrentTime() const noexcept
 	std::string text = std::ctime(&now);
 	// required, since ctime (asctime) append a new-line
 	text.erase(text.find_last_of('\n'), 1);
-	// Convert the std::string to std::wstring
-	// Note, this code only works if all the characters are single byte, i.e.
-	// ASCII or ISO-8859-1. Anything multi-byte will fail miserably, including
-	// UTF-8.
-	return { text.begin(), text.end() };
+
+	std::vector<wchar_t> result(text.size());
+	// Converts a multibyte character string from the array whose first element
+	// is pointed to by src to its wide character representation. Converted
+	// characters are stored in the successive elements of the array pointed to
+	// by dst. No more than len wide characters are written to the destination
+	// array.
+	// The firm of method std::mbstowcs is (dst, src, len)
+	std::size_t status = std::mbstowcs(result.data(), text.data(), text.size());
+	// Return the conversion made to text (std::wstring)
+	return { result.data(), status };
 }
 
 std::wstring Logger::ToString(Level level) const noexcept

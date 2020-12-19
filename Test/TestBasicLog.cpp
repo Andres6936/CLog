@@ -23,6 +23,12 @@ int main()
 
 	Levin::Debug("Test Debug String {} {}", 12, 42.25) ;
 
+	Levin::Emergency("Test for a message of emergency");
+
+	Levin::Alert("Test for a message of alert");
+
+	Levin::Critical("Critical message test");
+
 	Levin::Informational("Test Informational String {}", "Another Message") ;
 
 	Levin::Warning("Test Warning String") ;

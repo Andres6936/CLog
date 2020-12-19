@@ -12,36 +12,36 @@
 
 namespace Levin
 {
-	void Log(Level level, std::string_view message);
+	void Log(SecurityLevel level, std::string_view message);
 
 	template<typename ... Values>
 	inline void Debug(const std::string& message, Values&& ... values)
 	{
-		Levin::Log(Level::Debug, flossy::format(message, std::forward<Values>(values)...));
+		Levin::Log(SecurityLevel::Debug, flossy::format(message, std::forward<Values>(values)...));
 	}
 
 	template<typename ... Values>
 	inline void Info(const std::string& message, Values&& ... values)
 	{
-		Levin::Log(Level::Informational, flossy::format(message, std::forward<Values>(values)...));
+		Levin::Log(SecurityLevel::Informational, flossy::format(message, std::forward<Values>(values)...));
 	}
 
 	template<typename ... Values>
 	inline void Warn(const std::string& message, Values&& ... values)
 	{
-		Levin::Log(Level::Warning, flossy::format(message, std::forward<Values>(values)...));
+		Levin::Log(SecurityLevel::Warning, flossy::format(message, std::forward<Values>(values)...));
 	}
 
 	template<typename ... Values>
 	inline void Error(const std::string& message, Values&& ... values)
 	{
-		Levin::Log(Level::Error, flossy::format(message, std::forward<Values>(values)...));
+		Levin::Log(SecurityLevel::Error, flossy::format(message, std::forward<Values>(values)...));
 	}
 
 	template<typename ... Values>
 	inline void Severe(const std::string& message, Values&& ... values)
 	{
-		Levin::Log(Level::Notice, flossy::format(message, std::forward<Values>(values)...));
+		Levin::Log(SecurityLevel::Notice, flossy::format(message, std::forward<Values>(values)...));
 	}
 
 	/*!

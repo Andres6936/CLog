@@ -33,7 +33,7 @@ namespace Levin
 
 		ConsoleLogger& operator=(ConsoleLogger&&) = delete;
 
-		void Message(Level level, std::wstring_view local) override;
+		void Message(SecurityLevel level, std::wstring_view local) override;
 	};
 
 }

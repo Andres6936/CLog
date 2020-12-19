@@ -7,11 +7,11 @@ using namespace Levin;
 
 ConsoleLogger::ConsoleLogger() noexcept = default;
 
-void ConsoleLogger::Message(Level level, std::wstring_view local)
+void ConsoleLogger::Message(SecurityLevel level, std::wstring_view local)
 {
 	std::lock_guard <std::mutex> guard(writeLock);
 
-	if (level == Level::Error or level == Level::Notice)
+	if (level == SecurityLevel::Error or level == SecurityLevel::Notice)
 	{
 		std::wcerr << ToString(level) << " " << GetCurrentTime() << ": " << local;
 	}

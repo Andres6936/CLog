@@ -15,14 +15,14 @@ namespace Levin::Internal
 
 		std::wstringstream stream;
 
-		Levin::Level level;
+		Levin::SecurityLevel level;
 
 		explicit Local() noexcept;
 	};
 
 	extern thread_local Local local;
 
-	void AppendLog(Levin::Level level, std::wstring_view basicString);
+	void AppendLog(Levin::SecurityLevel level, std::wstring_view basicString);
 }
 
 #endif /* LOG_IMPL_H */

@@ -10,11 +10,11 @@ std::unique_ptr <Levin::Logger> Levin::logger = std::make_unique <Levin::Console
 
 thread_local Local Levin::Internal::local;
 
-Local::Local() noexcept : level{ Levin::Level::Debug }
+Local::Local() noexcept : level{ Levin::SecurityLevel::Debug }
 {
 }
 
-void Levin::Internal::AppendLog(Levin::Level level, std::wstring_view basicString)
+void Levin::Internal::AppendLog(Levin::SecurityLevel level, std::wstring_view basicString)
 {
 	Levin::logger->Message(level, basicString);
 }

@@ -1,7 +1,7 @@
 // Joan Andrés (@Andres6936) Github.
 
-#ifndef LEVIN_LEVEL_HPP
-#define LEVIN_LEVEL_HPP
+#ifndef LEVIN_SECURITYLEVEL_HPP
+#define LEVIN_SECURITYLEVEL_HPP
 
 namespace Levin
 {
@@ -23,7 +23,7 @@ namespace Levin
 	 * Warning level entry will also be included when filtering for Notice,
 	 * Info and Debug messages.
 	 */
-	enum class Level : unsigned char
+	enum class SecurityLevel : unsigned char
 	{
 		// System is unusable
 		Emergency = 0,
@@ -45,4 +45,4 @@ namespace Levin
 
 }
 
-#endif //LEVIN_LEVEL_HPP
+#endif //LEVIN_SECURITYLEVEL_HPP

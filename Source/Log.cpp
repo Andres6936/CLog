@@ -20,7 +20,7 @@ static std::wostream& End(std::wostream& stream)
 	return Internal::local.stream;
 }
 
-void Levin::Log(Level level, std::string_view message)
+void Levin::Log(SecurityLevel level, std::string_view message)
 {
 	Internal::local.level = level;
 	Internal::local.stream << MultiByteToWideChar(message.data()) << End;

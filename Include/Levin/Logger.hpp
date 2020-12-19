@@ -1,7 +1,7 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 
-#include "Level.hpp"
+#include "SecurityLevel.hpp"
 
 #include <chrono>
 #include <fstream>
@@ -43,7 +43,7 @@ namespace Levin
 		 * @note: Implementations of this method need to be thread-safe, e.g.
 		 * this method can be written to from multiple threads concurrently.
 		 */
-		virtual void Message(Level level, std::wstring_view local) = 0;
+		virtual void Message(SecurityLevel level, std::wstring_view local) = 0;
 
 	protected:
 
@@ -53,7 +53,7 @@ namespace Levin
 
 		[[nodiscard]] std::wstring GetCurrentTime() const noexcept;
 
-		[[nodiscard]] std::wstring ToString(Level level) const noexcept;
+		[[nodiscard]] std::wstring ToString(SecurityLevel level) const noexcept;
 	};
 
 	/**

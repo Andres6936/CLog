@@ -4,6 +4,8 @@ PROJECT(Levin VERSION 2020.0602 LANGUAGES CXX)
 
 OPTION(LEVIN_BUILD_TEST "Build the concurrency test-application" ON)
 
+ADD_SUBDIRECTORY(Dependency/)
+
 ADD_LIBRARY(Levin
         Source/Log.cpp
         Source/Logger.cpp

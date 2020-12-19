@@ -19,6 +19,9 @@ std::wstring Logger::GetCurrentTime() const noexcept
 	// required, since ctime (asctime) append a new-line
 	text.erase(text.find_last_of('\n'), 1);
 	// Convert the std::string to std::wstring
+	// Note, this code only works if all the characters are single byte, i.e.
+	// ASCII or ISO-8859-1. Anything multi-byte will fail miserably, including
+	// UTF-8.
 	return { text.begin(), text.end() };
 }
 

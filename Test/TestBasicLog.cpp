@@ -11,35 +11,35 @@ int main()
 {
 	Levin::Debug("Test Debug String {} {}", 12, 42.25) ;
 
-	Levin::Info("Test Info String {}", "Another Message") ;
+	Levin::Informational("Test Informational String {}", "Another Message") ;
 
-	Levin::Warn("Test Warn String") ;
+	Levin::Warning("Test Warning String") ;
 
 	Levin::Error("Test Error String") ;
 
-	Levin::Severe("Test Notice String") ;
+	Levin::Notice("Test Notice String") ;
 
 	Levin::logger = std::make_unique<ColoredLogger>(std::wcout);
 
 	Levin::Debug("Test Debug String {} {}", 12, 42.25) ;
 
-	Levin::Info("Test Info String {}", "Another Message") ;
+	Levin::Informational("Test Informational String {}", "Another Message") ;
 
-	Levin::Warn("Test Warn String") ;
+	Levin::Warning("Test Warning String") ;
 
 	Levin::Error("Test Error String") ;
 
-	Levin::Severe("Test Notice String") ;
+	Levin::Notice("Test Notice String") ;
 
 	Levin::logger = std::make_unique<FileLogger>("Test.BasicLog.txt");
 
 	Levin::Debug("Test Debug String {} {}", 12, 42.25) ;
 
-	Levin::Info("Test Info String {}", "Another Message") ;
+	Levin::Informational("Test Informational String {}", "Another Message") ;
 
-	Levin::Warn("Test Warn String") ;
+	Levin::Warning("Test Warning String") ;
 
 	Levin::Error("Test Error String") ;
 
-	Levin::Severe("Test Notice String") ;
+	Levin::Notice("Test Notice String") ;
 }

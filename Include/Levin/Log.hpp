@@ -15,21 +15,21 @@ namespace Levin
 	void Log(SecurityLevel level, std::string_view message);
 
 	template<typename ... Values>
-	inline void Debug(const std::string& message, Values&& ... values)
+	inline void Emergency(const std::string& message, Values&& ... values)
 	{
-		Levin::Log(SecurityLevel::Debug, flossy::format(message, std::forward<Values>(values)...));
+		Levin::Log(SecurityLevel::Emergency, flossy::format(message, std::forward<Values>(values)...));
 	}
 
 	template<typename ... Values>
-	inline void Info(const std::string& message, Values&& ... values)
+	inline void Alert(const std::string& message, Values&& ... values)
 	{
-		Levin::Log(SecurityLevel::Informational, flossy::format(message, std::forward<Values>(values)...));
+		Levin::Log(SecurityLevel::Alert, flossy::format(message, std::forward<Values>(values)...));
 	}
 
 	template<typename ... Values>
-	inline void Warn(const std::string& message, Values&& ... values)
+	inline void Critical(const std::string& message, Values&& ... values)
 	{
-		Levin::Log(SecurityLevel::Warning, flossy::format(message, std::forward<Values>(values)...));
+		Levin::Log(SecurityLevel::Critical, flossy::format(message, std::forward<Values>(values)...));
 	}
 
 	template<typename ... Values>
@@ -39,9 +39,27 @@ namespace Levin
 	}
 
 	template<typename ... Values>
-	inline void Severe(const std::string& message, Values&& ... values)
+	inline void Warning(const std::string& message, Values&& ... values)
+	{
+		Levin::Log(SecurityLevel::Warning, flossy::format(message, std::forward<Values>(values)...));
+	}
+
+	template<typename ... Values>
+	inline void Notice(const std::string& message, Values&& ... values)
 	{
 		Levin::Log(SecurityLevel::Notice, flossy::format(message, std::forward<Values>(values)...));
+	}
+
+	template<typename ... Values>
+	inline void Informational(const std::string& message, Values&& ... values)
+	{
+		Levin::Log(SecurityLevel::Informational, flossy::format(message, std::forward<Values>(values)...));
+	}
+
+	template<typename ... Values>
+	inline void Debug(const std::string& message, Values&& ... values)
+	{
+		Levin::Log(SecurityLevel::Debug, flossy::format(message, std::forward<Values>(values)...));
 	}
 
 	/*!

@@ -43,6 +43,12 @@ namespace Levin
 		[[nodiscard]] std::wstring ToString(Level level) const noexcept;
 	};
 
+	/**
+	 * Converts the source (string) to a multibyte character representation.
+	 *
+	 * @param source String without a wide character representation.
+	 * @return The wide character representation of source.
+	 */
 	std::wstring ToMultibyteCharacter(std::string_view source);
 }
 

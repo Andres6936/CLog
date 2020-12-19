@@ -14,6 +14,13 @@ namespace Levin
 	 * automatically collect data on a 24-hour basis. Upon activation, data
 	 * loggers are typically deployed and left unattended to measure and record
 	 * information for the duration of the monitoring period.
+	 *
+	 * Event logs record events taking place in the execution of a system in
+	 * order to provide an audit trail that can be used to understand the
+	 * activity of the system and to diagnose problems. They are essential to
+	 * understand the activities of complex systems, particularly in the case
+	 * of applications with little user interaction (such as server
+	 * applications).
 	 */
 	class Logger
 	{

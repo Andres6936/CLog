@@ -23,5 +23,5 @@ static std::wostream& End(std::wostream& stream)
 void Levin::Log(Level level, std::string_view message)
 {
 	Internal::local.level = level;
-	Internal::local.stream << MultiByteToWideChar(message) << End;
+	Internal::local.stream << MultiByteToWideChar(message.data()) << End;
 }

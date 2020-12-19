@@ -50,7 +50,7 @@ namespace Levin
 	 * @param source Pointer (string_view) to the character string to convert.
 	 * @return The wide character representation of source.
 	 */
-	std::wstring MultiByteToWideChar(std::string_view source);
+	std::wstring MultiByteToWideChar(const char* source);
 }
 
 #endif /* LOGGER_H */

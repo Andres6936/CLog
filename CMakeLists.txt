@@ -2,7 +2,7 @@ CMAKE_MINIMUM_REQUIRED(VERSION 3.1)
 
 PROJECT(Levin VERSION 2020.0602 LANGUAGES CXX)
 
-OPTION(LEVIN_BUILD_TEST "Build the concurrency test-application" ON)
+OPTION(LEVIN_BUILD_TEST "Build the concurrency test-application" OFF)
 
 ADD_LIBRARY(Levin
         Source/Log.cpp
@@ -27,6 +27,7 @@ IF (LEVIN_BUILD_TEST)
 
     TARGET_LINK_LIBRARIES(LevinTest PRIVATE Levin)
     TARGET_LINK_LIBRARIES(LevinTest PRIVATE ${CMAKE_THREAD_LIBS_INIT})
-ENDIF ()
 
-ADD_SUBDIRECTORY(Test/)
+    # Execute the test content in the directory
+    ADD_SUBDIRECTORY(Test/)
+ENDIF ()

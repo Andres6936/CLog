@@ -47,6 +47,13 @@ ELSE()
 ENDIF()
 
 ADD_LIBRARY(Levin::Framework ALIAS Levin.Framework)
+# It is necessary to repeat these instructions again, in case of not doing it, the executables
+# will be unable to locate the Headers needed to perform the linking
+TARGET_INCLUDE_DIRECTORIES(Levin.Framework
+        PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Include>
+        $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+        )
 
 # Test-program
 IF (LEVIN_BUILD_TEST)

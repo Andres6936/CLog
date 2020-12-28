@@ -8,3 +8,6 @@ MACRO(ADD_LEVIN_TEST _NAME_TARGET _NAME_FILE)
 ENDMACRO()
 
 ADD_LEVIN_TEST(Test.BasicLog TestBasicLog.cpp)
+
+# Run the test in the child directories
+ADD_SUBDIRECTORY(Format/)

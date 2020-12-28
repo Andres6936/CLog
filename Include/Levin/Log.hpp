@@ -7,8 +7,8 @@
 #include <string>
 #include <string_view>
 
-#include "Logger.hpp"
-#include "Flossy/Flossy.hpp"
+#include "Levin/Logger.hpp"
+#include "Levin/Format/Flossy.hpp"
 
 namespace Levin
 {

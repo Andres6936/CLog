@@ -23,16 +23,25 @@ thread-safe fashion.
 ## Usage
 
 ```cpp
-    //Top of the file:
-    #include <Levin/Levin.hpp>
-    
-    //Where you want to log:
-    Levin::Debug("This is a debug message");
-    Levin::Info("This is purely informational");
-    Levin::Warn("Supports full C++ stream syntax, hence we can log {} as well as {}", 12, 42.42);
-    Levin::Error("Something bad happened here!");
-    Levin::Notice("Something really catastrophic happened! Do somthing, NOW!!");
+//Top of the file:
+#include <Levin/Levin.hpp>
+
+//Where you want to log:
+Levin::Debug("This is a debug message");
+Levin::Info("This is purely informational");
+Levin::Warn("Supports full C++ stream syntax, hence we can log {} as well as {}", 12, 42.42);
+Levin::Error("Something bad happened here!");
+Levin::Notice("Something really catastrophic happened! Do somthing, NOW!!");
 ```
+
+It is important to note that Levin uses [Flossy](https://github.com/Andres6936/Flossy) 
+to format the strings, resulting in  a formatting of strings inspired in Python 3.
+
+```cpp
+Levin::Information("The first value passed is {}, and the second is {}!", 42, "foo");
+```
+
+###### For see the Format Specification Language consult the documentation of Flossy
 
 ## Configuration
 

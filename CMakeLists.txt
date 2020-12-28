@@ -51,8 +51,8 @@ ADD_LIBRARY(Levin::Framework ALIAS Levin.Framework)
 # will be unable to locate the Headers needed to perform the linking
 TARGET_INCLUDE_DIRECTORIES(Levin.Framework
         PUBLIC
-        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Include>
-        $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+            $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/Include>
+            $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
         )
 
 # Test-program

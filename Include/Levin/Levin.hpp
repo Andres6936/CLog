@@ -3,11 +3,10 @@
 #ifndef LEVIN_LEVIN_HPP
 #define LEVIN_LEVIN_HPP
 
-#include "ColoredLogger.hpp"
-#include "ConsoleLogger.hpp"
-#include "StreamLogger.hpp"
-#include "FileLogger.hpp"
-#include "Logger.hpp"
-#include "Log.hpp"
+#include "Levin/ColoredLogger.hpp"
+#include "Levin/ConsoleLogger.hpp"
+#include "Levin/StreamLogger.hpp"
+#include "Levin/FileLogger.hpp"
+#include "Levin/Log.hpp"
 
 #endif //LEVIN_LEVIN_HPP

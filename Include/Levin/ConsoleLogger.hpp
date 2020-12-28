@@ -3,8 +3,7 @@
 #ifndef LEVIN_CONSOLELOGGER_HPP
 #define LEVIN_CONSOLELOGGER_HPP
 
-#include "Log.hpp"
-#include "Logger.hpp"
+#include "Levin/Logger.hpp"
 
 namespace Levin
 {

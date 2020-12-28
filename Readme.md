@@ -69,17 +69,22 @@ To write your own Logger, simply follow this easy steps:
 ### How to Compile
 
 ```shell
-git clone --recursive --depth=1 https://github.com/Andres6936/Levin.git
+git clone --depth=1 https://github.com/Andres6936/Levin.git
 cd Levin && mkdir Build
 cd Build && cmake ..
 make 
 ```
 
-### How to use
+### How to use the library as a downloadable dependency
+
 To use this library, you need the script written by [TheLartians](https://github.com/TheLartians),
 named [CPM.cmake](https://github.com/TheLartians/CPM.cmake) (acronym for CMake
 Package Manager). Add it to your project, for example, under the
 `CMakeModules` and then in your `CMakeFiles.txt` write the following:
+
+- The directory `CMakeModules` is used to store CMake Scripts,
+  in case you use another directory for these purposes it will be necessary that
+  references properly CPM.cmake to be able to download the dependency.
 
 ```cmake
 Include(CMakeModules/CPM.cmake)
@@ -90,5 +95,5 @@ CPMAddPackage(
   GITHUB_REPOSITORY Andres6936/Levin
 )
  
-TARGET_LINK_LIBRARIES(<TARGET> PRIVATE Levin)
+TARGET_LINK_LIBRARIES(<TARGET> PRIVATE Levin::Framework)
 ```

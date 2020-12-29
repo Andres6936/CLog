@@ -40,21 +40,23 @@ Currently, Levin's severity levels (log functions) are based on the standard
 //Top of the file:
 #include <Levin/Levin.hpp>
 
+using namespace Levin;
+
 //Where you want to log:
-Levin::Debug("This is a debug message");
-Levin::Informational("This is purely informational");
-Levin::Warning("Supports full C++ stream syntax, hence we can log {} as well as {}", 12, 42.42);
-Levin::Error("Something bad happened here!");
-Levin::Critical("Something really catastrophic happened! Do somthing, NOW!!");
-Levin::Emergency("Imminent failure, the system will shut down");
-Levin::Alert("This is a {} message", "alert");
+Log::Debug("This is a debug message");
+Log::Informational("This is purely informational");
+Log::Warning("Supports full C++ stream syntax, hence we can log {} as well as {}", 12, 42.42);
+Log::Error("Something bad happened here!");
+Log::Critical("Something really catastrophic happened! Do somthing, NOW!!");
+Log::Emergency("Imminent failure, the system will shut down");
+Log::Alert("This is a {} message", "alert");
 ```
 
 It is important to note that Levin uses [Flossy](https://github.com/Andres6936/Flossy) 
 to format the strings, resulting in  a formatting of strings inspired in Python 3.
 
 ```cpp
-Levin::Information("The first value passed is {}, and the second is {}!", 42, "foo");
+Log::Information("The first value passed is {}, and the second is {}!", 42, "foo");
 ```
 
 ###### For see the Format Specification Language consult the documentation of Flossy

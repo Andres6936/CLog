@@ -14,6 +14,11 @@ namespace Levin
 {
 
 	/**
+	 * Currently, Levin's severity levels (log functions) are based on the
+	 * standard <a href="https://tools.ietf.org/html/rfc5424">RFC5424</a>,
+	 * that define the follow severity levels.
+	 * <br><br>
+	 *
 	 * The concept of the class is be a static class, where only a unique
 	 * instance can be exist.
 	 *

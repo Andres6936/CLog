@@ -26,5 +26,6 @@ void Levin::Log::SendMessage(SecurityLevel _level, std::string_view message)
 
 void Log::SetNewLogger(std::unique_ptr<Logger> newLogger)
 {
+	// Take the own of newLogger and clear the current logger (the old)
 	logger = std::move(newLogger);
 }

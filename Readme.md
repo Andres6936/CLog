@@ -42,10 +42,12 @@ Currently, Levin's severity levels (log functions) are based on the standard
 
 //Where you want to log:
 Levin::Debug("This is a debug message");
-Levin::Info("This is purely informational");
-Levin::Warn("Supports full C++ stream syntax, hence we can log {} as well as {}", 12, 42.42);
+Levin::Informational("This is purely informational");
+Levin::Warning("Supports full C++ stream syntax, hence we can log {} as well as {}", 12, 42.42);
 Levin::Error("Something bad happened here!");
-Levin::Notice("Something really catastrophic happened! Do somthing, NOW!!");
+Levin::Critical("Something really catastrophic happened! Do somthing, NOW!!");
+Levin::Emergency("Imminent failure, the system will shut down");
+Levin::Alert("This is a {} message", "alert");
 ```
 
 It is important to note that Levin uses [Flossy](https://github.com/Andres6936/Flossy) 

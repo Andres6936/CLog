@@ -17,7 +17,7 @@ namespace Levin
 	 * The concept of the class is be a static class, where only a unique
 	 * instance can be exist.
 	 *
-	 * @note The class cannot be extend.
+	 * @note This class cannot be inherited from.
 	 */
 	class Log final
 	{

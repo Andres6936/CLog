@@ -16,7 +16,7 @@ namespace Levin
 	class Log
 	{
 
-	public:
+	private:
 
 		/**
 		 * The string stream is used for save the current message to send.
@@ -44,6 +44,11 @@ namespace Levin
 		static void SendMessage(SecurityLevel level, std::string_view message);
 
 	public:
+
+		/**
+		 * Allow change the logger used for default.
+		 */
+		static void SetNewLogger(std::unique_ptr<Logger> newLogger);
 
 		/**
 		 * System is unusable.

@@ -23,3 +23,8 @@ void Levin::Log::SendMessage(SecurityLevel _level, std::string_view message)
 	stream.str({});
 	stream.clear();
 }
+
+void Log::SetNewLogger(std::unique_ptr<Logger> newLogger)
+{
+	logger = std::move(newLogger);
+}

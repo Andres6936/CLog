@@ -24,11 +24,6 @@ namespace Levin
 		static inline std::wstringstream stream {};
 
 		/**
-		 * The severity level of message.
-		 */
-		static inline SeverityLevel level = SeverityLevel::Debug;
-
-		/**
 		 * This is the Logger-instance being used to write the logs.
 		 *
 		 * Use this variable to set a custom Logger-instance.
@@ -38,10 +33,10 @@ namespace Levin
 
 		/**
 		 * Generic function for print the message in the stream.
-		 * @param level The severity level of message.
+		 * @param severity The severity severity of message.
 		 * @param message The messsage to print in the stream.
 		 */
-		static void SendMessage(SeverityLevel level, std::string_view message);
+		static void SendMessage(SeverityLevel severity, std::string_view message);
 
 	public:
 

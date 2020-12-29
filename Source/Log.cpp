@@ -8,15 +8,14 @@ std::unique_ptr <Levin::Logger> Levin::Log::logger = std::make_unique <Levin::Co
 
 // Methods
 
-void Levin::Log::SendMessage(SeverityLevel _level, std::string_view message)
+void Levin::Log::SendMessage(SeverityLevel severity, std::string_view message)
 {
-	level = _level;
 	stream << MultiByteToWideChar(message.data()) << std::endl;
 
 	if (not stream.bad())
 	{
 		// Only write to underyling logger, if we didn't set the bad-bit.
-		logger->Message(level, stream.str());
+		logger->Message(severity, stream.str());
 	}
 
 	// Reset stream-data (and state)

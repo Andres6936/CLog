@@ -1,27 +1,25 @@
 #include "Levin/Log.hpp"
-#include "Private/ImplementationLog.h"
+#include "Levin/ConsoleLogger.hpp"
 
 using namespace Levin;
 
-static std::wostream& End(std::wostream& stream)
+// Initialize the static variable
+std::unique_ptr <Levin::Logger> Levin::Log::logger = std::make_unique <Levin::ConsoleLogger>();
+
+// Methods
+
+void Levin::Log::SendMessage(SecurityLevel _level, std::string_view message)
 {
-	stream << std::endl;
-	if (!Internal::local.stream.bad())
+	level = _level;
+	stream << MultiByteToWideChar(message.data()) << std::endl;
+
+	if (not stream.bad())
 	{
-		// only write to underyling logger, if we didn't set the bad-bit
-		Internal::AppendLog(Internal::local.level,
-				Internal::local.stream.str());
+		// Only write to underyling logger, if we didn't set the bad-bit.
+		logger->Message(level, stream.str());
 	}
 
-	// reset stream-data (and state)
-	Internal::local.stream.str(std::wstring());
-	Internal::local.stream.clear();
-
-	return Internal::local.stream;
-}
-
-void Levin::Log(SecurityLevel level, std::string_view message)
-{
-	Internal::local.level = level;
-	Internal::local.stream << MultiByteToWideChar(message.data()) << End;
+	// Reset stream-data (and state)
+	stream.str({});
+	stream.clear();
 }

@@ -19,7 +19,7 @@ ADD_LIBRARY(Levin.Framework.Object OBJECT
         Source/StreamLogger.cpp
         Source/ColoredLogger.cpp
         Source/ConsoleLogger.cpp
-        Source/Private/ImplementationLog.cpp)
+        )
 
 SET_TARGET_PROPERTIES(Levin.Framework.Object PROPERTIES CXX_STANDARD 17)
 # Define headers for this library. PUBLIC headers are used for

@@ -9,43 +9,43 @@ using namespace Levin;
 
 int main()
 {
-	Levin::Debug("Test Debug String {} {}", 12, 42.25) ;
+	Log::Debug("Test Debug String {} {}", 12, 42.25) ;
 
-	Levin::Informational("Test Informational String {}", "Another Message") ;
+	Log::Informational("Test Informational String {}", "Another Message") ;
 
-	Levin::Warning("Test Warning String") ;
+	Log::Warning("Test Warning String") ;
 
-	Levin::Error("Test Error String") ;
+	Log::Error("Test Error String") ;
 
-	Levin::Notice("Test Notice String") ;
+	Log::Notice("Test Notice String") ;
 
-	Levin::logger = std::make_unique<ColoredLogger>(std::wcout);
+	Log::logger = std::make_unique<ColoredLogger>(std::wcout);
 
-	Levin::Debug("Test Debug String {} {}", 12, 42.25) ;
+	Log::Debug("Test Debug String {} {}", 12, 42.25) ;
 
-	Levin::Emergency("Test for a message of emergency");
+	Log::Emergency("Test for a message of emergency");
 
-	Levin::Alert("Test for a message of alert");
+	Log::Alert("Test for a message of alert");
 
-	Levin::Critical("Critical message test");
+	Log::Critical("Critical message test");
 
-	Levin::Informational("Test Informational String {}", "Another Message") ;
+	Log::Informational("Test Informational String {}", "Another Message") ;
 
-	Levin::Warning("Test Warning String") ;
+	Log::Warning("Test Warning String") ;
 
-	Levin::Error("Test Error String") ;
+	Log::Error("Test Error String") ;
 
-	Levin::Notice("Test Notice String") ;
+	Log::Notice("Test Notice String") ;
 
-	Levin::logger = std::make_unique<FileLogger>("Test.BasicLog.txt");
+	Log::logger = std::make_unique<FileLogger>("Test.BasicLog.txt");
 
-	Levin::Debug("Test Debug String {} {}", 12, 42.25) ;
+	Log::Debug("Test Debug String {} {}", 12, 42.25) ;
 
-	Levin::Informational("Test Informational String {}", "Another Message") ;
+	Log::Informational("Test Informational String {}", "Another Message") ;
 
-	Levin::Warning("Test Warning String") ;
+	Log::Warning("Test Warning String") ;
 
-	Levin::Error("Test Error String") ;
+	Log::Error("Test Error String") ;
 
-	Levin::Notice("Test Notice String") ;
+	Log::Notice("Test Notice String") ;
 }

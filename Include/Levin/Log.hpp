@@ -16,12 +16,12 @@ namespace Levin
 	class Log
 	{
 
-	private:
+	public:
 
 		/**
 		 * The string stream is used for save the current message to send.
 		 */
-		static std::wstringstream stream;
+		static inline std::wstringstream stream {};
 
 		/**
 		 * The severity level of message.
@@ -49,7 +49,7 @@ namespace Levin
 		 * System is unusable.
 		 */
 		template<typename ... Values>
-		inline void Emergency(const std::string& message, Values&& ... values)
+		static void Emergency(const std::string& message, Values&& ... values)
 		{
 			SendMessage(SecurityLevel::Emergency, flossy::format(message, std::forward<Values>(values)...));
 		}
@@ -58,7 +58,7 @@ namespace Levin
 		 * Action must be taken immediately.
 		 */
 		template<typename ... Values>
-		inline void Alert(const std::string& message, Values&& ... values)
+		static void Alert(const std::string& message, Values&& ... values)
 		{
 			SendMessage(SecurityLevel::Alert, flossy::format(message, std::forward<Values>(values)...));
 		}
@@ -67,7 +67,7 @@ namespace Levin
 		 * Critical conditions.
 		 */
 		template<typename ... Values>
-		inline void Critical(const std::string& message, Values&& ... values)
+		static void Critical(const std::string& message, Values&& ... values)
 		{
 			SendMessage(SecurityLevel::Critical, flossy::format(message, std::forward<Values>(values)...));
 		}
@@ -76,7 +76,7 @@ namespace Levin
 		 * Error conditions.
 		 */
 		template<typename ... Values>
-		inline void Error(const std::string& message, Values&& ... values)
+		static void Error(const std::string& message, Values&& ... values)
 		{
 			SendMessage(SecurityLevel::Error, flossy::format(message, std::forward<Values>(values)...));
 		}
@@ -85,7 +85,7 @@ namespace Levin
 		 * Warning conditions.
 		 */
 		template<typename ... Values>
-		inline void Warning(const std::string& message, Values&& ... values)
+		static void Warning(const std::string& message, Values&& ... values)
 		{
 			SendMessage(SecurityLevel::Warning, flossy::format(message, std::forward<Values>(values)...));
 		}
@@ -94,7 +94,7 @@ namespace Levin
 		 * Normal but significant conditions.
 		 */
 		template<typename ... Values>
-		inline void Notice(const std::string& message, Values&& ... values)
+		static void Notice(const std::string& message, Values&& ... values)
 		{
 			SendMessage(SecurityLevel::Notice, flossy::format(message, std::forward<Values>(values)...));
 		}
@@ -103,7 +103,7 @@ namespace Levin
 		 * Informational messages.
 		 */
 		template<typename ... Values>
-		inline void Informational(const std::string& message, Values&& ... values)
+		static void Informational(const std::string& message, Values&& ... values)
 		{
 			SendMessage(SecurityLevel::Informational, flossy::format(message, std::forward<Values>(values)...));
 		}
@@ -112,7 +112,7 @@ namespace Levin
 		 * Debug-level messages.
 		 */
 		template<typename ... Values>
-		inline void Debug(const std::string& message, Values&& ... values)
+		static void Debug(const std::string& message, Values&& ... values)
 		{
 			SendMessage(SecurityLevel::Debug, flossy::format(message, std::forward<Values>(values)...));
 		}

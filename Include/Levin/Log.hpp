@@ -13,7 +13,13 @@
 namespace Levin
 {
 
-	class Log
+	/**
+	 * The concept of the class is be a static class, where only a unique
+	 * instance can be exist.
+	 *
+	 * @note The class cannot be extend.
+	 */
+	class Log final
 	{
 
 	private:

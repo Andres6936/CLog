@@ -69,19 +69,26 @@ Resetting **logger** to the `nullptr` disables logging for the remainder of the 
 This also shuts down the logging-thread, so no CPU time is wasted. By default, the **LOGGER** is set to **ConsoleLogger** (see section Extensions).
 
 ## Extensions
+
 In the current version, Levin comes with three built-in Loggers:
 
-- ConsoleLogger: writes every log to `std::cout` and `std::cerr`, where any log with the levels **Error** and 
-**Notice** are written to *std::cerr* and any other log goes to *std::cout*.
+- **ConsoleLogger**: writes every log to `std::cout` and `std::cerr`, where any log
+  with the levels _Emergency_, _Alert_, _Critical_ and _Error_ are written to 
+  `std::cerr` and any other log goes to `std::cout`. <br> 
+  <small align="right"><mark>This Logger is enabled by default.</mark></small>
 
-This Logger is enabled by default.
-- FileLogger: Logs the output to a file, specified by a file-name given as constructor-argument.
-- ColoredLogger: Writes any log to `std::cout` but uses console colors to highlight more critical messages.
+- **FileLogger**: Logs the output to a file, specified by a file-name given as 
+  constructor-argument.
+  
+- **ColoredLogger**: Writes any log to `std::cout` but uses console colors to 
+  highlight more critical messages.
 
 To write your own Logger, simply follow this easy steps:
 
-1. Write a Logger-class publicly extending **Logger** (in the header-file **Logger.h**) and overwrite at least **message**.
-2. Use the global variable **LOGGER** to set the logger to an instance of your custom class
+1. Write a Logger-class publicly extending **Logger** (in the header-file 
+   **Logger.h**) and overwrite at least **message**.
+2. Use the function `Log::SetNewLogger` from the static class `Log` to set the
+   logger to an instance of your custom class.
 3. Done!
 
 ### How to Compile

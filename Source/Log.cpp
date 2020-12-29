@@ -8,7 +8,7 @@ std::unique_ptr <Levin::Logger> Levin::Log::logger = std::make_unique <Levin::Co
 
 // Methods
 
-void Levin::Log::SendMessage(SecurityLevel _level, std::string_view message)
+void Levin::Log::SendMessage(SeverityLevel _level, std::string_view message)
 {
 	level = _level;
 	stream << MultiByteToWideChar(message.data()) << std::endl;

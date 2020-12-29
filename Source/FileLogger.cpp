@@ -14,7 +14,7 @@ FileLogger::~FileLogger()
 	fileStream.close();
 }
 
-void FileLogger::Message(SecurityLevel level, std::wstring_view local)
+void FileLogger::Message(SeverityLevel level, std::wstring_view local)
 {
 	std::lock_guard <std::mutex> guard(writeLock);
 

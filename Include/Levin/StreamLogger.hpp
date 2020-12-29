@@ -26,7 +26,7 @@ namespace Levin
 
 		StreamLogger& operator=(StreamLogger&&) = delete;
 
-		void Message(SecurityLevel level, std::wstring_view local) override;
+		void Message(SeverityLevel level, std::wstring_view local) override;
 
 	protected:
 

@@ -1,7 +1,7 @@
 // Joan Andrés (@Andres6936) Github.
 
-#ifndef LEVIN_SECURITYLEVEL_HPP
-#define LEVIN_SECURITYLEVEL_HPP
+#ifndef LEVIN_SEVERITYLEVEL_HPP
+#define LEVIN_SEVERITYLEVEL_HPP
 
 namespace Levin
 {
@@ -25,7 +25,7 @@ namespace Levin
 	 *
 	 * Reference: RFC 5424 - Table 2. Syslog Message Severities
 	 */
-	enum class SecurityLevel : unsigned char
+	enum class SeverityLevel : unsigned char
 	{
 		// System is unusable
 		Emergency = 0,
@@ -47,4 +47,4 @@ namespace Levin
 
 }
 
-#endif //LEVIN_SECURITYLEVEL_HPP
+#endif //LEVIN_SEVERITYLEVEL_HPP

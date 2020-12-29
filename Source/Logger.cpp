@@ -50,25 +50,25 @@ std::wstring Logger::GetCurrentTime() const noexcept
 	return MultiByteToWideChar(text.data());
 }
 
-std::wstring Logger::ToString(SecurityLevel level) const noexcept
+std::wstring Logger::ToString(SeverityLevel level) const noexcept
 {
 	switch (level)
 	{
-	case SecurityLevel::Debug:
+	case SeverityLevel::Debug:
 		return L"[D]";
-	case SecurityLevel::Informational:
+	case SeverityLevel::Informational:
 		return L"[I]";
-	case SecurityLevel::Warning:
+	case SeverityLevel::Warning:
 		return L"[W]";
-	case SecurityLevel::Error:
+	case SeverityLevel::Error:
 		return L"[E]";
-	case SecurityLevel::Notice:
+	case SeverityLevel::Notice:
 		return L"[N]";
-	case SecurityLevel::Emergency:
+	case SeverityLevel::Emergency:
 		return L"[M]";
-	case SecurityLevel::Alert:
+	case SeverityLevel::Alert:
 		return L"[A]";
-	case SecurityLevel::Critical:
+	case SeverityLevel::Critical:
 		return L"[C]";
 	default:
 		return L"[U]";

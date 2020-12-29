@@ -116,9 +116,11 @@ Include(CMakeModules/CPM.cmake)
 
 CPMAddPackage(
   NAME Levin
-  VERSION 2020.0602
+  VERSION 2020.1228
   GITHUB_REPOSITORY Andres6936/Levin
 )
  
 TARGET_LINK_LIBRARIES(<TARGET> PRIVATE Levin::Framework)
 ```
+
+###### Please, in the VERSION option you should preferably specify the latest version available consult [here](https://github.com/Andres6936/Levin/releases/latest)

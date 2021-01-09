@@ -1,6 +1,6 @@
 CMAKE_MINIMUM_REQUIRED(VERSION 3.1)
 
-PROJECT(Levin VERSION 2020.1228 LANGUAGES CXX)
+PROJECT(Levin VERSION 2021.0109 LANGUAGES CXX)
 
 # The shared libraries are libraries that can be linked dynamically and loaded at runtime.
 OPTION(LEVIN_SHARED_LIBRARIES "Generate the Shared Libraries" OFF)

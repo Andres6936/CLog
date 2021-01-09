@@ -13,10 +13,10 @@ void ConsoleLogger::Message(SeverityLevel level, std::wstring_view local)
 
 	if (level >= SeverityLevel::Emergency and level <= SeverityLevel::Error)
 	{
-		std::wcerr << ToString(level) << " " << GetCurrentTime() << ": " << local;
+		std::wcerr << ToString(level) << ' ' << GetCurrentTime() << ": " << local << '\n';
 	}
 	else
 	{
-		std::wcout << ToString(level) << " " << GetCurrentTime() << ": " << local;
+		std::wcout << ToString(level) << ' ' << GetCurrentTime() << ": " << local << '\n';
 	}
 }

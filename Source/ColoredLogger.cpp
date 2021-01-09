@@ -44,37 +44,35 @@ void ColoredLogger::Message(SeverityLevel level, std::wstring_view local)
 	if (level >= SeverityLevel::Emergency and level <= SeverityLevel::Critical)
 	{
 		// Output console in Red Darker
-		stream << "\033[1;31m" << ToString(level) << " " << GetCurrentTime() << ": " << local << "\033[0m";
+		stream << "\033[1;31m" << ToString(level) << " " << GetCurrentTime() << ": " << local << "\033[0m" << '\n';
 	}
 	else if (level == SeverityLevel::Error)
 	{
 		// Output console in Magenta Darker
-		stream << "\033[1;35m" << ToString(level) << " " << GetCurrentTime() << ": " << local << "\033[0m";
+		stream << "\033[1;35m" << ToString(level) << " " << GetCurrentTime() << ": " << local << "\033[0m" << '\n';
 	}
 	else if (level == SeverityLevel::Warning)
 	{
 		// Output console in Yellow Darker
-		stream << "\033[1;33m" << ToString(level) << " " << GetCurrentTime() << ": " << local << "\033[0m";
+		stream << "\033[1;33m" << ToString(level) << " " << GetCurrentTime() << ": " << local << "\033[0m" << '\n';
 	}
 	else if (level == SeverityLevel::Notice)
 	{
 		// Output console in Blue Darker
-		stream << "\033[1;34m" << ToString(level) << " " << GetCurrentTime() << ": " << local << "\033[0m";
+		stream << "\033[1;34m" << ToString(level) << " " << GetCurrentTime() << ": " << local << "\033[0m" << '\n';
 	}
 	else if (level == SeverityLevel::Informational)
 	{
 		// Output console in Cyan Darker
-		stream << "\033[1;36m" << ToString(level) << " " << GetCurrentTime() << ": " << local << "\033[0m";
+		stream << "\033[1;36m" << ToString(level) << " " << GetCurrentTime() << ": " << local << "\033[0m" << '\n';
 	}
 	else if (level == SeverityLevel::Debug)
 	{
 		// Output console in Green Darker
-		stream << "\033[1;32m" << ToString(level) << " " << GetCurrentTime() << ": " << local << "\033[0m";
+		stream << "\033[1;32m" << ToString(level) << " " << GetCurrentTime() << ": " << local << "\033[0m" << '\n';
 	}
 	else
 	{
-		stream << ToString(level) << " " << GetCurrentTime() << ": " << local;
+		stream << ToString(level) << " " << GetCurrentTime() << ": " << local << '\n';
 	}
-
-	stream.flush();
 }

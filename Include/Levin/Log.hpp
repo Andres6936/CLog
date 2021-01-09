@@ -30,11 +30,6 @@ namespace Levin
 	private:
 
 		/**
-		 * The string stream is used for save the current message to send.
-		 */
-		static inline std::wstringstream stream {};
-
-		/**
 		 * This is the Logger-instance being used to write the logs.
 		 *
 		 * Use this variable to set a custom Logger-instance.

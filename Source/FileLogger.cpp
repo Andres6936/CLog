@@ -18,5 +18,5 @@ void FileLogger::Message(SeverityLevel level, std::wstring_view local)
 {
 	std::lock_guard <std::mutex> guard(writeLock);
 
-	fileStream << ToString(level) << " " << GetCurrentTime() << ": " << local;
+	fileStream << ToString(level) << " " << GetCurrentTime() << ": " << local << '\n';
 }

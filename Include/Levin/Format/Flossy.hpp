@@ -313,27 +313,27 @@ namespace flossy
 			// Reference: https://stackoverflow.com/a/27669457
 
 			const std::array<std::pair<char_type, fill_alignment>, 3> alignment_types{{
-																							  { '>', fill_alignment::left },
-																							  { '_', fill_alignment::intern },
-																							  { '<', fill_alignment::right }
-																					  }};
+								  { '>', fill_alignment::left },
+								  { '_', fill_alignment::intern },
+								  { '<', fill_alignment::right }
+						  }};
 
 			const std::array<std::pair<char_type, pos_sign_type>, 3> sign_types{{
-																						{ '+', pos_sign_type::plus },
-																						{ ' ', pos_sign_type::space },
-																						{ '-', pos_sign_type::none }
-																				}};
+								{ '+', pos_sign_type::plus },
+								{ ' ', pos_sign_type::space },
+								{ '-', pos_sign_type::none }
+						}};
 
 			const std::array<std::pair<char_type, conversion_format>, 8> format_types{{
-																							  { 'b', conversion_format::binary },
-																							  { 'd', conversion_format::decimal },
-																							  { 'o', conversion_format::octal },
-																							  { 'x', conversion_format::hex },
-																							  { 'e', conversion_format::scientific_float },
-																							  { 'f', conversion_format::normal_float },
-																							  { 's', conversion_format::string },
-																							  { 'c', conversion_format::character }
-																					  }};
+								  { 'b', conversion_format::binary },
+								  { 'd', conversion_format::decimal },
+								  { 'o', conversion_format::octal },
+								  { 'x', conversion_format::hex },
+								  { 'e', conversion_format::scientific_float },
+								  { 'f', conversion_format::normal_float },
+								  { 's', conversion_format::string },
+								  { 'c', conversion_format::character }
+						  }};
 
 			InputIt& it;
 			InputIt const end;

@@ -5,35 +5,37 @@
 
 #include "Levin/Levin.hpp"
 
+using namespace Levin;
+
 static void logThread()
 {
 	const int threadID = std::rand();
 
 	while (true)
 	{
-		Levin::Debug() << "Test from: " << threadID << Levin::endl;
+		Log::Debug("Test from: " + std::to_string(threadID));
 
 		std::this_thread::sleep_for(std::chrono::milliseconds(150));
 
-		Levin::Error() << "Test 2 from : " << threadID << Levin::endl;
+		Log::Error("Test 2 from : " + std::to_string(threadID));
 
-		Levin::Informational() << "Lazy Standarging!" << Levin::endl;
+		Log::Informational("Lazy Standarging!");
 
-		Levin::Informational() << "More lazy logging" << Levin::endl;
+		Log::Informational("More lazy logging");
 
-		Levin::Debug() << "Even more lazy logging" << Levin::endl;
+		Log::Debug("Even more lazy logging");
 
-		Levin::Warning() << "Warning" << Levin::endl;
+		Log::Warning("Warning");
 
-		Levin::Notice() << "Notice" << Levin::endl;
+		Log::Notice("Notice");
 	}
 }
 
 int main(int argc, char** argv)
 {
-	Levin::logger = std::make_unique <Levin::ColoredLogger>(std::wcout);
+	Log::SetNewLogger(std::make_unique<ColoredLogger>(std::wcout));
 
-	Levin::Informational() << "Dummy" << Levin::endl;
+	Log::Informational("Dummy");
 
 	for (int i = 0; i < 10; i++)
 	{
@@ -42,11 +44,11 @@ int main(int argc, char** argv)
 
 	while (true)
 	{
-		Levin::Debug() << std::string("Test") << Levin::endl;
+		Log::Debug(std::string("Test"));
 
 		std::this_thread::sleep_for(std::chrono::milliseconds(100));
 
-		Levin::Error() << "Test2" << Levin::endl;
+		Log::Error("Test2");
 	}
 
 	return 0;

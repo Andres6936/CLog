@@ -61,7 +61,8 @@ IF (LEVIN_BUILD_TEST)
 
     ADD_EXECUTABLE(LevinTest "Main.cpp")
 
-    TARGET_LINK_LIBRARIES(LevinTest PRIVATE Levin)
+    SET_TARGET_PROPERTIES(LevinTest PROPERTIES CXX_STANDARD 17)
+    TARGET_LINK_LIBRARIES(LevinTest PRIVATE Levin::Framework)
     TARGET_LINK_LIBRARIES(LevinTest PRIVATE ${CMAKE_THREAD_LIBS_INIT})
 
     # Execute the test content in the directory

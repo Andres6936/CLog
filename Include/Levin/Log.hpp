@@ -30,6 +30,18 @@ namespace Levin
 	private:
 
 		/**
+		 * Defines the minimum severity level necessary for a message sent to
+		 * the Logger to be processed and/or sent to notify, if the variable is
+		 * set to Debug (the default value) all messages sent to the Logger will
+		 * be processed and/or notified, if for example the minimum severity
+		 * level is set to emergency (the highest possible severity value for a
+		 * message) only messages with the severity level of emergency will be
+		 * processed and/or notified, discarding any other message with a
+		 * severity level below this one.
+		 */
+		static inline SeverityLevel filter = SeverityLevel::Debug;
+
+		/**
 		 * This is the Logger-instance being used to write the logs.
 		 *
 		 * Use this variable to set a custom Logger-instance.
@@ -45,6 +57,12 @@ namespace Levin
 		static void SendMessage(SeverityLevel severity, std::string_view message);
 
 	public:
+
+		/**
+		 * Set the filter for processing and/or notify messages in the logger.
+		 * @param severity The new severity level to used for filter messages.
+		 */
+		static void SetFilter(SeverityLevel severity);
 
 		/**
 		 * Allow change the logger used for default.

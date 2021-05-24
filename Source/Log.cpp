@@ -8,10 +8,20 @@ std::unique_ptr <Levin::Logger> Levin::Log::logger = std::make_unique <Levin::Co
 
 // Methods
 
+void Log::SetFilter(SeverityLevel severity)
+{
+	filter = severity;
+}
+
 void Levin::Log::SendMessage(SeverityLevel severity, std::string_view message)
 {
-	// Only write to underyling logger, if we didn't set the bad-bit.
-	logger->Message(severity, MultiByteToWideChar(message.data()));
+	// Only processing and/or notify messages with a severity level greater
+	// than filter, please see the documentation.
+	if (filter >= severity)
+	{
+		// Only write to underyling logger, if we didn't set the bad-bit.
+		logger->Message(severity, MultiByteToWideChar(message.data()));
+	}
 }
 
 void Log::SetNewLogger(std::unique_ptr<Logger> newLogger)

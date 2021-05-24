@@ -1,9 +1,6 @@
 // Joan Andrés (@Andres6936) Github.
 
-#include <iostream>
 #include "Levin/Log.hpp"
-#include "Levin/FileLogger.hpp"
-#include "Levin/ColoredLogger.hpp"
 
 using namespace Levin;
 
